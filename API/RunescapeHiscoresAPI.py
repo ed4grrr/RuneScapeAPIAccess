@@ -8,6 +8,10 @@ as seen at https://runescape.wiki/w/Application_programming_interface#Hiscores.
 Credit for the information on how to access APIs goes to the authors of
 the above article
 
+Some Endpoints have been left out. They will be added as their function is understood enough
+to abstract the parameters like category and table seen in the util.Runescape_Hiscores_URL_Templates.py
+file.
+
 """
 
 from Main_API import _API
@@ -19,17 +23,7 @@ class RunescapeHiScoresAPI(_API):
     def __init__(self):
         super().__init__()
 
-    def get_player_hiscore(self, URL_template: str, player_name: str) -> list:
-        """
 
-        used to get the hiscores data for a given player, as described at
-
-        :param URL_template: the url template for the needed API endpoint
-        :param player_name: the name of the user to look up
-        :return: a list directly from Jagex that contains the information on that user as seen at
-            https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
-        """
-        return super().request_and_decode_API_response(URL_template, player_name)
 
     def get_rankings(self, URL_template: str, current_activity: str, skill_or_activity_name: str, amount_of_ranks: str)->list:
         """
@@ -44,10 +38,26 @@ class RunescapeHiScoresAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_template, current_activity, skill_or_activity_name, amount_of_ranks)
+    def get_userRanking(self, current_session_id:str)->list:
+
+        return  super().request_and_decode_API_response(URL_Templates.)
+
+
+    def get_player_hiscore(self, URL_template: str, player_name: str) -> list:
+        """
+
+        used to get the hiscores data for a given player, as described at
+
+        :param URL_template: the url template for the needed API endpoint
+        :param player_name: the name of the user to look up
+        :return: a list directly from Jagex that contains the information on that user as seen at
+            https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
+        """
+        return super().request_and_decode_API_response(URL_template, player_name)
 
     def get_clan_member_data(self, URL_template:str, clan_name:str)->list:
         """
-
+        Provides
         :param URL_template: the template required for this endpoint
         :param clan_name:
         :return: a list of all clan memebers in the given clan as described at

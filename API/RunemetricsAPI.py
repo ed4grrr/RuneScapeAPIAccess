@@ -26,7 +26,7 @@ class RunemetricAPI(_API):
 
     def get_player_monthly_xp(self, URL_template:str, player_name:str, skill_id:str)->list:
         """
-        provides the monthly_xp over the
+        provides the monthly_xp over the last 12 months for the given user
         :param URL_template: the url template required for getting monthly xp totals for a specificed player
             from RuneMetrics
         :param player_name: string containing the player name in question
