@@ -79,7 +79,7 @@ class RunemetricAPI(_API):
 
     def get_windows_installer_info(self) -> list:
         """
-        provides the current size and cycling redundancy check code for the windows installer
+        provides the current size and cycling redundancy check code for the Windows installer
             version
         :return: a list containing the above information
         https://runescape.wiki/w/Application_programming_interface#NXT
