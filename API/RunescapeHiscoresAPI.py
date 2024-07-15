@@ -25,10 +25,9 @@ class RunescapeHiScoresAPI(_API):
 
 
 
-    def get_rankings(self, URL_template: str, current_activity: str, skill_or_activity_name: str, amount_of_ranks: str)->list:
+    def get_rankings(self, current_activity: str, skill_or_activity_name: str, amount_of_ranks: str)->list:
         """
 
-        :param URL_template: the template required for this endpoint
         :param current_activity: a string containing the int of the current skill, overall level, or activity
         :param skill_or_activity_name: a string containing the int of the skills or activities
         :param amount_of_ranks: a string containing the int of the amount of players requested, MAX 50
@@ -37,33 +36,66 @@ class RunescapeHiScoresAPI(_API):
             https://runescape.wiki/w/Application_programming_interface#ranking
         """
 
-        return super().request_and_decode_API_response(URL_template, current_activity, skill_or_activity_name, amount_of_ranks)
+        return super().request_and_decode_API_response(URL_Templates.ranking_url, current_activity, skill_or_activity_name, amount_of_ranks)
+
     def get_userRanking(self, current_session_id:str)->list:
+        """
 
-        return  super().request_and_decode_API_response(URL_Templates.)
+        :param current_session_id: a string containing the session ID of the currently
+        logged in player
+        :return: a list with the player name and their overall rank
+        """
+
+        return  super().request_and_decode_API_response(URL_Templates.userRanking_URL, current_session_id)
 
 
-    def get_player_hiscore(self, URL_template: str, player_name: str) -> list:
+    def get_player_hiscore(self,  player_name: str) -> list:
         """
 
         used to get the hiscores data for a given player, as described at
-
-        :param URL_template: the url template for the needed API endpoint
+             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         :param player_name: the name of the user to look up
         :return: a list directly from Jagex that contains the information on that user as seen at
             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         """
-        return super().request_and_decode_API_response(URL_template, player_name)
+        return super().request_and_decode_API_response(URL_Templates.hiscores_lite_URL, player_name)
 
-    def get_clan_member_data(self, URL_template:str, clan_name:str)->list:
+    def get_ironman_hiscore(self, player_name:str)->list:
         """
-        Provides
-        :param URL_template: the template required for this endpoint
-        :param clan_name:
-        :return: a list of all clan memebers in the given clan as described at
-        https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
+
+        :param player_name: a string containing the name of the player in question
+        :return:  a list directly from Jagex that contains the information on that Ironman user as seen at
+            https://runescape.wiki/w/Application_programming_interface#Ironman_Lite
+
         """
-        return super().request_and_decode_API_response(URL_template, clan_name)
+        return super().request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL, player_name)
+
+    def get_hardcore_ironman_hiscore(self, player_name:str)->list:
+        """
+
+        :param player_name: a string containing the name of the player in question
+        :return:  a list directly from Jagex that contains the information on that Hardcore Ironman user as seen at
+            https://runescape.wiki/w/Application_programming_interface#Hardcore_Ironman_Lite
+        """
+        return super().request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL, player_name)
+
+
+
+    def get_boss_groups_data(self, size_of_group:str,amount_of_entries_per_page:str, boss_id:str,page_number:str):
+        """
+        Provides the information on group boss kills (including solo)
+        :param size_of_group: a str containing the int describing the number of players in the group
+        MIN 1 and MAX varies depending on boss
+        :param amount_of_entries_per_page: a str containing the int describing the number of entries
+        per page
+        :param boss_id: a str containing the int describing the boss being killed
+        :param page_number: a str containing the int describing the page number of the hiscores list
+        :return: a list containing the data described at
+        https://runescape.wiki/w/Application_programming_interface#groups
+        """
+
+        return super().request_and_decode_API_response(URL_Templates.boss_groups_URL,size_of_group,amount_of_entries_per_page,boss_id,page_number)
+
 
 
 if __name__ == "__main__":
@@ -71,6 +103,6 @@ if __name__ == "__main__":
     user_entry_no_space = "Zezima"
     user_entry_space = "Iron man"
 
-    response = test.get_player_hiscore(URL_Templates.player_hiscores_lite_URL, user_entry_space)
+    response = test.get_player_hiscore(user_entry_space)
 
     print(response.read().decode().split("\n"))
