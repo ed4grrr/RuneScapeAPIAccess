@@ -26,4 +26,12 @@ clan_members_lite_URL = 'http://services.runescape.com/m=clan-hiscores/members_l
 
 # *****************************************RUNEMETRICS URLS*****************************************
 runemetrics_player_URL = 'https://apps.runescape.com/runemetrics/profile/profile?user={0}&activities=20'
+runemetrics_monthly_xp_URL = "https://apps.runescape.com/runemetrics/xp-monthly?searchName={0}&skillid={1}"
+runemetrics_player_quest_data_URL = "https://apps.runescape.com/runemetrics/quests?user={0}"
+runemetrics_total_player_count_URL = "http://www.runescape.com/player_count.js?varname=iPlayerCount&callback=jQuery000000000000000_0000000000&_=0"
+runemetrics_rsusertotal_URL = "https://secure.runescape.com/m=account-creation-reports/rsusertotal.ws"
+runemetrics_NXT_URL = "http://content.runescape.com/downloads/changelog.json"
+runemetrics_windows_NXT_installer_info = "http://content.runescape.com/downloads-info/windows/RuneScape-Setup.exe.json"
+runemetrics_OSX_NXT_installer_info = "http://content.runescape.com/downloads-info/osx/RuneScape.dmg.json"
+
 # *********************************************************************************************************

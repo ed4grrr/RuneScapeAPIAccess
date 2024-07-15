@@ -1,5 +1,6 @@
-from Main_API import _API
+import util.RASPIAUserAgentStrings as User_Agent_Strings
 import util.Runescape_HiScores_URL_Templates as URL_Templates
+from Main_API import _API
 
 
 class RunescapeHiscoresClansAPI(_API):
@@ -17,7 +18,8 @@ class RunescapeHiscoresClansAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#clanRanking
         """
 
-        return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL)
+        return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
+                                                       User_Agent_Strings.runescape_clans)
 
     def get_user_clan_ranking(self, user_session_id:str)->list:
         """
@@ -27,6 +29,8 @@ class RunescapeHiscoresClansAPI(_API):
         at https://runescape.wiki/w/Application_programming_interface#userClanRanking
         """
 
+        return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
+                                                       User_Agent_Strings.runescape_clans, user_session_id)
     def get_clan_members_lite(self, clan_name:str)->list:
         """
         Provides data on each clan member, provided the name of a clan as seen at
@@ -35,5 +39,5 @@ class RunescapeHiscoresClansAPI(_API):
         :return: a list of all clan memebers in the given clan as described at
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
         """
-        return super().request_and_decode_API_response(URL_Templates.clan_members_lite_URL, clan_name)
-
+        return super().request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
+                                                       User_Agent_Strings.runescape_clans, clan_name)

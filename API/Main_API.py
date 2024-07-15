@@ -1,6 +1,7 @@
-from urllib.request import Request, urlopen
-from urllib.parse import quote
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote
+from urllib.request import Request, urlopen
+
 
 class _API:
     def __init__(self):
@@ -14,7 +15,8 @@ class _API:
         """
         return[ quote(str(api_argument)) for api_argument in api_arguments]
 
-    def _create_Request_from_URL_template(self, URL_template:str, *user_entered_arguments:str) -> str or Request:
+    def _create_Request_from_URL_template(self, URL_template: str, user_agent,
+                                          *user_entered_arguments: str) -> str or Request:
         """
         used to create a usable url from user input
         :param URL_template: a string containing the API URL with formating marks {0}, {1}, etc. for all user
@@ -24,6 +26,7 @@ class _API:
         """
         cleaned_args = self._clean_user_inputs(*user_entered_arguments)
         try:
+            headers = {'User-Agent': user_agent}
             return Request( URL_template.format(*cleaned_args) )
         except IndexError as e:
             return f"Error: {e}. Not enough arguments provided to fill the URL template."
@@ -41,20 +44,23 @@ class _API:
         try:
             return urlopen(api_request)
         except HTTPError as e:
+            # TODO create new custom exceptions to describe these cases so
+            #  that it can be raised to a higher level.
             return f"Unfulfilled Request,\nCode: {e.code}\nReason: {e.reason}"
 
         except URLError as e:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
-    def request_and_decode_API_response(self,URL_template:str, *args:str)->list:
+    def request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: str) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the
             child Classes.
-        :param URL_template:
-        :param args:
-        :return:
+        :param URL_template: string containing the API URL needed formated to accept user input
+        :param user_agent: string containing the intended use of that api information
+        :param args: strings that contain the user supplied inputs necessary in the URL_Template
+        :return: a list of the information provided by the api call
         """
-        api_request = self._create_Request_from_URL_template(URL_template, *args)
+        api_request = self._create_Request_from_URL_template(URL_template, user_agent, *args)
 
         return self._call_API(api_request)
 
