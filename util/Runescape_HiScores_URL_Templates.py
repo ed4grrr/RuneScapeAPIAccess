@@ -35,3 +35,13 @@ runemetrics_windows_NXT_installer_info = "http://content.runescape.com/downloads
 runemetrics_OSX_NXT_installer_info = "http://content.runescape.com/downloads-info/osx/RuneScape.dmg.json"
 
 # *********************************************************************************************************
+
+# *****************************************WEIRD GLOOP URLS*****************************************
+weird_gloop_GE_price_check_URL = "https://api.weirdgloop.org/exchange/history/rs/latest?name={0}"
+weird_gloop_GE_price_history_all_URL = "https://api.weirdgloop.org/exchange/history/rs/all?name={0}"
+weird_gloop_GE_price_history_sample_URL = "https://api.weirdgloop.org/exchange/history/rs/sample?name={0}"
+weird_gloop_GE_price_history_last90d_URL = "https://api.weirdgloop.org/exchange/history/rs/last90d?name={0}"
+weird_gloop_voice_of_seren_URL = "https://api.weirdgloop.org/runescape/vos"
+weird_gloop_historical_voice_of_seren_URL = "https://api.weirdgloop.org/runescape/vos/history"
+
+# *********************************************************************************************************
