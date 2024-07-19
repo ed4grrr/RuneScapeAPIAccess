@@ -27,7 +27,7 @@ class _API:
         cleaned_args = self._clean_user_inputs(*user_entered_arguments)
         try:
             headers = {'User-Agent': user_agent}
-            return Request( URL_template.format(*cleaned_args) )
+            return Request(URL_template.format(*cleaned_args), headers=headers)
         except IndexError as e:
             return f"Error: {e}. Not enough arguments provided to fill the URL template."
         except KeyError as e:

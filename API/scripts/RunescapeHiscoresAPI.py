@@ -16,7 +16,7 @@ file.
 
 import util.RASPIAUserAgentStrings as User_Agent_Strings
 import util.Runescape_HiScores_URL_Templates as URL_Templates
-from Main_API import _API
+from _MainAPI import _API
 
 
 class RunescapeHiScoresAPI(_API):

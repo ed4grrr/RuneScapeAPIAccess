@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Finished adding API endpoint contact methods. The others may be added as necessary.">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/tests/Test_MainAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/Main_API.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Python Unit Test" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2jGXOHq1kb2NHmAt8reoHEftGug" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Edgar W Bowlin III/PycharmProjects/RuneScapeAPIAccess&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Edgar W Bowlin III\PycharmProjects\RuneScapeAPIAccess" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Edgar W Bowlin III\PycharmProjects\RuneScapeAPIAccess\API\scripts" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="" />
+      <created>1721014354132</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721014354132</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1721014603579</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721014603579</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adjust documentation and completed URL collection for Runescape Hiscores.">
+      <option name="closed" value="true" />
+      <created>1721016665683</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721016665683</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Code Clean-up, abstracted methods from child to parent in API hierarchy, created more API objects for ease of use">
+      <option name="closed" value="true" />
+      <created>1721062049338</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721062049338</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cleaned more code, added user-agent variability to API family objects">
+      <option name="closed" value="true" />
+      <created>1721067746366</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721067746366</updated>
+    </task>
+    <task id="LOCAL-00005" summary="minor comment edit">
+      <option name="closed" value="true" />
+      <created>1721070628237</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721070628237</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Finished adding API endpoint contact methods. The others may be added as necessary.">
+      <option name="closed" value="true" />
+      <created>1721088741632</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721088741632</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Default" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Adjust documentation and completed URL collection for Runescape Hiscores." />
+    <MESSAGE value="Code Clean-up, abstracted methods from child to parent in API hierarchy, created more API objects for ease of use" />
+    <MESSAGE value="Cleaned more code, added user-agent variability to API family objects" />
+    <MESSAGE value="minor comment edit" />
+    <MESSAGE value="Finished adding API endpoint contact methods. The others may be added as necessary." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished adding API endpoint contact methods. The others may be added as necessary." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>
