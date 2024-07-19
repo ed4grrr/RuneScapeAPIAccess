@@ -30,7 +30,7 @@ class RunescapeHiscoresClansAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                       User_Agent_Strings.runescape_clans, user_session_id)
+                                                       User_Agent_Strings.runescape_clans, [user_session_id])
     def get_clan_members_lite(self, clan_name:str)->list:
         """
         Provides data on each clan member, provided the name of a clan as seen at
@@ -40,4 +40,4 @@ class RunescapeHiscoresClansAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
         """
         return super().request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
-                                                       User_Agent_Strings.runescape_clans, clan_name)
+                                                       User_Agent_Strings.runescape_clans, [clan_name])

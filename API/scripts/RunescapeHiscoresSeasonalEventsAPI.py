@@ -17,7 +17,7 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.seasonal_get_current_rankings_URL,
-                                                       User_Agent_Strings.runescape_seasonal_events, player_name)
+                                                       User_Agent_Strings.runescape_seasonal_events, [player_name])
     def get_archived_seasonal_rankings(self, player_name:str)->list:
         """
 
@@ -27,7 +27,7 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.seasonal_get_past_rankings_URL,
-                                                       User_Agent_Strings.runescape_seasonal_events, player_name)
+                                                       User_Agent_Strings.runescape_seasonal_events, [player_name])
 
 
     def get_current_seasonal_hiscores_details(self)->list:

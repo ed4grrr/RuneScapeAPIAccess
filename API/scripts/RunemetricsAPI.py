@@ -24,7 +24,7 @@ class RunemetricAPI(_API):
             https://runescape.wiki/w/Application_programming_interface#Profile
         """
         return super().request_and_decode_API_response(URL_Templates.runemetrics_player_URL,
-                                                       User_Agent_Strings.runemetrics, player_name)
+                                                       User_Agent_Strings.runemetrics, [player_name])
 
     def get_player_monthly_xp(self, player_name: str, skill_id: str) -> list:
         """
@@ -38,7 +38,7 @@ class RunemetricAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.runemetrics_monthly_xp_URL,
-                                                       User_Agent_Strings.runemetrics, player_name, skill_id)
+                                                       User_Agent_Strings.runemetrics, [player_name, skill_id])
 
     def get_player_quest_data(self, player_name: str) -> list:
         """
@@ -48,7 +48,7 @@ class RunemetricAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#Quest
         """
         return super().request_and_decode_API_response(URL_Templates.runemetrics_player_quest_data_URL,
-                                                       User_Agent_Strings.runemetrics, player_name)
+                                                       User_Agent_Strings.runemetrics, [player_name])
 
     def get_player_count(self) -> list:
         """

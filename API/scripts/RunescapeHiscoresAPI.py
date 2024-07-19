@@ -38,7 +38,7 @@ class RunescapeHiScoresAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.ranking_url, User_Agent_Strings.runescape_hiscores,
-                                                       current_activity, skill_or_activity_name, amount_of_ranks)
+                                                       [current_activity, skill_or_activity_name, amount_of_ranks])
 
     def get_userRanking(self, current_session_id:str)->list:
         """
@@ -49,7 +49,7 @@ class RunescapeHiScoresAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.userRanking_URL,
-                                                       User_Agent_Strings.runescape_hiscores, current_session_id)
+                                                       User_Agent_Strings.runescape_hiscores, [current_session_id])
 
 
     def get_player_hiscore(self,  player_name: str) -> list:
@@ -62,7 +62,7 @@ class RunescapeHiScoresAPI(_API):
             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         """
         return super().request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, player_name)
+                                                       User_Agent_Strings.runescape_hiscores, [player_name])
 
     def get_ironman_hiscore(self, player_name:str)->list:
         """
@@ -73,7 +73,7 @@ class RunescapeHiScoresAPI(_API):
 
         """
         return super().request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, player_name)
+                                                       User_Agent_Strings.runescape_hiscores, [player_name])
 
     def get_hardcore_ironman_hiscore(self, player_name:str)->list:
         """
@@ -83,7 +83,7 @@ class RunescapeHiScoresAPI(_API):
             https://runescape.wiki/w/Application_programming_interface#Hardcore_Ironman_Lite
         """
         return super().request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, player_name)
+                                                       User_Agent_Strings.runescape_hiscores, [player_name])
 
 
 
@@ -101,8 +101,9 @@ class RunescapeHiScoresAPI(_API):
         """
 
         return super().request_and_decode_API_response(URL_Templates.boss_groups_URL,
-                                                       User_Agent_Strings.runescape_hiscores, size_of_group,
-                                                       amount_of_entries_per_page, boss_id, page_number)
+                                                       User_Agent_Strings.runescape_hiscores, [size_of_group,
+                                                                                               amount_of_entries_per_page,
+                                                                                               boss_id, page_number])
 
 
 

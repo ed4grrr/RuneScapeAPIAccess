@@ -7,13 +7,15 @@ class _API:
     def __init__(self):
         pass
 
-    def _clean_user_inputs(self, *api_arguments:str)->list:
+    def _clean_user_inputs(self, *api_arguments: list[str]) -> list:
         """
         cleans user input to be used in a URL
         :param api_arguments: string arguments that fulfill API required parameters
         :return: a list of "cleaned" strings usable in URLs
         """
-        return[ quote(str(api_argument)) for api_argument in api_arguments]
+        arguments_list = api_arguments[0]
+        return [quote(str(api_argument)) for api_argument in arguments_list]
+
 
     def _create_Request_from_URL_template(self, URL_template: str, user_agent,
                                           *user_entered_arguments: str) -> str or Request:
@@ -51,7 +53,7 @@ class _API:
         except URLError as e:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
-    def request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: str) -> list:
+    def request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: list[str]) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the
             child Classes.
@@ -70,7 +72,9 @@ if __name__ == "__main__":
     test_URL_template = 'https://secure.runescape.com/m=hiscore/index_lite.ws?player={0}'
     user_entry_no_space = "Zezima"
     user_entry_space = "Iron man"
+    args = ["player name", "skill/ID", "#dogg ", "_$@^edgar "]
 
-    print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_no_space))
-    print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_space))
+    print(api_test._clean_user_inputs(args))
 
+    # print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_no_space))
+    # print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_space))
