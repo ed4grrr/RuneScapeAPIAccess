@@ -13,6 +13,7 @@ class _API:
         :param api_arguments: string arguments that fulfill API required parameters
         :return: a list of "cleaned" strings usable in URLs
         """
+        print(api_arguments)
         arguments_list = api_arguments[0]
         return [quote(str(api_argument)) for api_argument in arguments_list]
 

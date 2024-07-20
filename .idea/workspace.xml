@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Created first full test case for _MainAPI.py. Reconfigured type hinting in API to use a list of strings instead of *args. More work necessary to complete.">
-      <change afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/tests/Parser_Tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RuneScapeAPIAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RuneScapeAPIAccess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +41,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests in Parser_Tests.py.executor": "Run",
     "Python tests.Python tests in Test_MainAPI.py.executor": "Run",
+    "Python.APIResponseToJSON.executor": "Run",
+    "Python.RunescapeHiscoresAPI.executor": "Run",
     "Python._MainAPI.executor": "Run",
+    "Python.parser_function_Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Edgar W Bowlin III/PycharmProjects/RuneScapeAPIAccess",
-    "settings.editor.selected.configurable": "editor.preferences.completion"
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RecentsManager">

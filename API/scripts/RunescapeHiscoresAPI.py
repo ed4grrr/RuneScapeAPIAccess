@@ -16,10 +16,10 @@ file.
 
 import util.RASPIAUserAgentStrings as User_Agent_Strings
 import util.Runescape_HiScores_URL_Templates as URL_Templates
-from _MainAPI import _API
+from API.scripts._MainAPI import _API as API
 
 
-class RunescapeHiScoresAPI(_API):
+class RunescapeHiScoresAPI(API):
 
     def __init__(self):
         super().__init__()
