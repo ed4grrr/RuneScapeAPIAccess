@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Created first full test case for _MainAPI.py. Reconfigured type hinting in API to use a list of strings instead of *args. More work necessary to complete.">
-      <change afterPath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/tests/Parser_Tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RuneScapeAPIAccess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RuneScapeAPIAccess.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Edgar_W_Bowlin_III.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Scratch_file/MultiClassTester.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +45,7 @@
     "Python tests.Python tests in Parser_Tests.py.executor": "Run",
     "Python tests.Python tests in Test_MainAPI.py.executor": "Run",
     "Python.APIResponseToJSON.executor": "Run",
+    "Python.MultiClassTester.executor": "Run",
     "Python.RunescapeHiscoresAPI.executor": "Run",
     "Python._MainAPI.executor": "Run",
     "Python.parser_function_Test.executor": "Run",
@@ -157,6 +159,14 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/API/scripts/_MainAPI.py</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/API/scripts/RunemetricsAPI.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py</url>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

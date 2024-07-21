@@ -24,7 +24,7 @@ class APIResponseParser():
                 # TODO CReate exception for this line below
                 return ("Invalid Player Name")
 
-            return json.load(str(zip(USER_LITE_SCORE_API_RESPONSE_ORDER, data)))
+            return json.dumps(dict(zip(USER_LITE_SCORE_API_RESPONSE_ORDER, data)))
 
     def _parseMultiLinedString(self, textToParse: str) -> list[int or str]:
         return [[float(number) if number != '' else 0 for number in entry.split(",")] for entry in
