@@ -24,9 +24,8 @@ class RunescapeHiScoresAPI(API):
     def __init__(self):
         super().__init__()
 
-
-
-    def get_rankings(self, current_activity: str, skill_or_activity_name: str, amount_of_ranks: str)->list:
+    def get_rankings(self, current_activity: str = "3", skill_or_activity_name: str = "3", amount_of_ranks: str =
+    '10') -> list:
         """
 
         :param current_activity: a string containing the int of the current skill, overall level, or activity
@@ -40,7 +39,7 @@ class RunescapeHiScoresAPI(API):
         return super().request_and_decode_API_response(URL_Templates.ranking_url, User_Agent_Strings.runescape_hiscores,
                                                        [current_activity, skill_or_activity_name, amount_of_ranks])
 
-    def get_userRanking(self, current_session_id:str)->list:
+    def _get_userRanking(self, current_session_id: str) -> list:
         """
 
         :param current_session_id: a string containing the session ID of the currently
@@ -51,8 +50,7 @@ class RunescapeHiScoresAPI(API):
         return super().request_and_decode_API_response(URL_Templates.userRanking_URL,
                                                        User_Agent_Strings.runescape_hiscores, [current_session_id])
 
-
-    def get_player_hiscore(self,  player_name: str) -> list:
+    def get_player_hiscore(self, player_name: str = "Zezima") -> list:
         """
 
         used to get the hiscores data for a given player, as described at
@@ -64,7 +62,7 @@ class RunescapeHiScoresAPI(API):
         return super().request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
-    def get_ironman_hiscore(self, player_name:str)->list:
+    def get_ironman_hiscore(self, player_name: str = "Gecu") -> list:
         """
 
         :param player_name: a string containing the name of the player in question
@@ -75,7 +73,7 @@ class RunescapeHiScoresAPI(API):
         return super().request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL,
                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
-    def get_hardcore_ironman_hiscore(self, player_name:str)->list:
+    def get_hardcore_ironman_hiscore(self, player_name: str = "J oris") -> list:
         """
 
         :param player_name: a string containing the name of the player in question
@@ -85,9 +83,8 @@ class RunescapeHiScoresAPI(API):
         return super().request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL,
                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
-
-
-    def get_boss_groups_data(self, size_of_group:str,amount_of_entries_per_page:str, boss_id:str,page_number:str):
+    def get_boss_groups_data(self, size_of_group: str = "3", amount_of_entries_per_page: str = "10", boss_id: str = "3",
+                             page_number: str = "1"):
         """
         Provides the information on group boss kills (including solo)
         :param size_of_group: a str containing the int describing the number of players in the group

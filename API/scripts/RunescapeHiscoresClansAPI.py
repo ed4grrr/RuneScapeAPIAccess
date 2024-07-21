@@ -21,7 +21,7 @@ class RunescapeHiscoresClansAPI(_API):
         return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
                                                        User_Agent_Strings.runescape_clans)
 
-    def get_user_clan_ranking(self, user_session_id:str)->list:
+    def _get_user_clan_ranking(self, user_session_id: str) -> list:
         """
         provides the currently logged-in user's clan name and rank
         :param user_session_id: the current session id of LOGGED IN player
@@ -31,7 +31,8 @@ class RunescapeHiscoresClansAPI(_API):
 
         return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
                                                        User_Agent_Strings.runescape_clans, [user_session_id])
-    def get_clan_members_lite(self, clan_name:str)->list:
+
+    def get_clan_members_lite(self, clan_name: str = "The Citadel Kingdom") -> list:
         """
         Provides data on each clan member, provided the name of a clan as seen at
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite

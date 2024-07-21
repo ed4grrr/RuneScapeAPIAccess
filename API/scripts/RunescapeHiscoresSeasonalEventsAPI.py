@@ -8,7 +8,7 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
     def __init__(self):
         super().__init__()
 
-    def get_current_seasonal_rankings(self, player_name:str)->list:
+    def get_current_seasonal_rankings(self, player_name: str = "Zezima") -> list:
         """
 
         :param player_name: a string containing the name of the player in question
@@ -18,7 +18,8 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
 
         return super().request_and_decode_API_response(URL_Templates.seasonal_get_current_rankings_URL,
                                                        User_Agent_Strings.runescape_seasonal_events, [player_name])
-    def get_archived_seasonal_rankings(self, player_name:str)->list:
+
+    def get_archived_seasonal_rankings(self, player_name: str = "Zezima") -> list:
         """
 
         :param player_name: a string containing the name of the player in question

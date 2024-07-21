@@ -10,7 +10,7 @@ class RunemetricAPI(_API):
 
 
 #TODO determine return type for runemetrics based "api" responses
-    def get_player_profile(self, player_name) -> list:
+    def get_player_profile(self, player_name="Zezima") -> list:
         """
         provides the player profile from Runemetrics, as described at
         https://runescape.wiki/w/Application_programming_interface#Profile
@@ -26,7 +26,7 @@ class RunemetricAPI(_API):
         return super().request_and_decode_API_response(URL_Templates.runemetrics_player_URL,
                                                        User_Agent_Strings.runemetrics, [player_name])
 
-    def get_player_monthly_xp(self, player_name: str, skill_id: str) -> list:
+    def get_player_monthly_xp(self, player_name: str = "Zezima", skill_id: str = "2") -> list:
         """
         provides the monthly_xp over the last 12 months for the given user
         :param URL_template: the url template required for getting monthly xp totals for a specificed player
@@ -40,7 +40,7 @@ class RunemetricAPI(_API):
         return super().request_and_decode_API_response(URL_Templates.runemetrics_monthly_xp_URL,
                                                        User_Agent_Strings.runemetrics, [player_name, skill_id])
 
-    def get_player_quest_data(self, player_name: str) -> list:
+    def get_player_quest_data(self, player_name: str = "Zezima") -> list:
         """
         provides the full quest data of a given player
         :param player_name:  the player's username
