@@ -5,7 +5,7 @@ ranking_url = 'https://secure.runescape.com/m=hiscore/ranking.json?table={0}&cat
 userRanking_URL="https://secure.runescape.com/c={0}/m=hiscore/userRanking.json"
 hiscores_lite_URL = 'https://secure.runescape.com/m=hiscore/index_lite.ws?player={0}'
 ironman_hiscores_lite_URL = "https://secure.runescape.com/m=hiscore_ironman/index_lite.ws?player={0}"
-hardcore_ironman_hiscores_lite_URL = "https://secure.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player=X"
+hardcore_ironman_hiscores_lite_URL = "https://secure.runescape.com/m=hiscore_hardcore_ironman/index_lite.ws?player={0}"
 boss_groups_URL = 'https://secure.runescape.com/m=group_hiscores/v1//groups?groupSize={0}&size={1}&bossId={2}&page={3}'
 # *********************************************************************************************************
 
@@ -28,11 +28,11 @@ clan_members_lite_URL = 'http://services.runescape.com/m=clan-hiscores/members_l
 runemetrics_player_URL = 'https://apps.runescape.com/runemetrics/profile/profile?user={0}&activities=20'
 runemetrics_monthly_xp_URL = "https://apps.runescape.com/runemetrics/xp-monthly?searchName={0}&skillid={1}"
 runemetrics_player_quest_data_URL = "https://apps.runescape.com/runemetrics/quests?user={0}"
-runemetrics_total_player_count_URL = "http://www.runescape.com/player_count.js?varname=iPlayerCount&callback=jQuery000000000000000_0000000000&_=0"
+runemetrics_total_player_count_URL = "https://www.runescape.com/player_count.js?varname=iPlayerCount&callback=jQuery000000000000000_0000000000&_=0"
 runemetrics_rsusertotal_URL = "https://secure.runescape.com/m=account-creation-reports/rsusertotal.ws"
-runemetrics_NXT_URL = "http://content.runescape.com/downloads/changelog.json"
-runemetrics_windows_NXT_installer_info = "http://content.runescape.com/downloads-info/windows/RuneScape-Setup.exe.json"
-runemetrics_OSX_NXT_installer_info = "http://content.runescape.com/downloads-info/osx/RuneScape.dmg.json"
+runemetrics_NXT_URL = "https://content.runescape.com/downloads/changelog.json"
+runemetrics_windows_NXT_installer_info = "https://content.runescape.com/downloads-info/windows/RuneScape-Setup.exe.json"
+runemetrics_OSX_NXT_installer_info = "https://content.runescape.com/downloads-info/osx/RuneScape.dmg.json"
 
 # *********************************************************************************************************
 

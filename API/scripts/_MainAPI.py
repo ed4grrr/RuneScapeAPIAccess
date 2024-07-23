@@ -13,9 +13,9 @@ class _API:
         :param api_arguments: string arguments that fulfill API required parameters
         :return: a list of "cleaned" strings usable in URLs
         """
-        print(api_arguments)
-        arguments_list = api_arguments[0]
-        return [quote(str(api_argument)) for api_argument in arguments_list]
+        if len(api_arguments) > 0:  # if no argument, dont crash the program
+            arguments_list = api_arguments[0]
+            return [quote(str(api_argument)) for api_argument in arguments_list]
 
 
     def _create_Request_from_URL_template(self, URL_template: str, user_agent,
@@ -30,7 +30,11 @@ class _API:
         cleaned_args = self._clean_user_inputs(*user_entered_arguments)
         try:
             headers = {'User-Agent': user_agent}
-            return Request(URL_template.format(*cleaned_args), headers=headers)
+            if len(cleaned_args) != 0:
+
+                return Request(URL_template.format(*cleaned_args), headers=headers)
+            else:
+                return Request(URL_template, headers=headers)
         except IndexError as e:
             return f"Error: {e}. Not enough arguments provided to fill the URL template."
         except KeyError as e:
@@ -45,7 +49,8 @@ class _API:
         :return: either a urlopen object or str if error
         """
         try:
-            return urlopen(api_request)
+            with urlopen(api_request) as r:
+                return r.read().decode('iso-8859-1')
         except HTTPError as e:
             # TODO create new custom exceptions to describe these cases so
             #  that it can be raised to a higher level.
@@ -54,7 +59,7 @@ class _API:
         except URLError as e:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
-    def request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: list[str]) -> list:
+    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: list[str]) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the
             child Classes.
@@ -65,7 +70,9 @@ class _API:
         """
         api_request = self._create_Request_from_URL_template(URL_template, user_agent, *args)
 
-        return self._call_API(api_request)
+        data = self._call_API(api_request)
+
+        return data
 
 
 if __name__ == "__main__":

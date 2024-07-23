@@ -8,9 +8,7 @@ class RunescapeHiscoresClansAPI(_API):
     def __init__(self):
         super().__init__()
 
-
-
-    def get_clan_ranking(self)->list:
+    def _get_clan_ranking(self) -> list:
         """
         provides the top three clans from the clan hiscores list
 
@@ -18,8 +16,8 @@ class RunescapeHiscoresClansAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#clanRanking
         """
 
-        return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                       User_Agent_Strings.runescape_clans)
+        return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
+                                                        User_Agent_Strings.runescape_clans)
 
     def _get_user_clan_ranking(self, user_session_id: str) -> list:
         """
@@ -29,8 +27,8 @@ class RunescapeHiscoresClansAPI(_API):
         at https://runescape.wiki/w/Application_programming_interface#userClanRanking
         """
 
-        return super().request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                       User_Agent_Strings.runescape_clans, [user_session_id])
+        return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
+                                                        User_Agent_Strings.runescape_clans, [user_session_id])
 
     def get_clan_members_lite(self, clan_name: str = "The Citadel Kingdom") -> list:
         """
@@ -40,5 +38,5 @@ class RunescapeHiscoresClansAPI(_API):
         :return: a list of all clan memebers in the given clan as described at
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
         """
-        return super().request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
-                                                       User_Agent_Strings.runescape_clans, [clan_name])
+        return super()._request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
+                                                        User_Agent_Strings.runescape_clans, [clan_name])

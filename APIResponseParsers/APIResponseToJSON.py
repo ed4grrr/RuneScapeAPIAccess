@@ -1,6 +1,8 @@
 import json
+from csv import reader
+from io import StringIO
 
-from util.UsefulLists import USER_LITE_SCORE_API_RESPONSE_ORDER
+import util.UsefulLists
 
 
 class APIResponseParser():
@@ -11,20 +13,39 @@ class APIResponseParser():
     # either in a JSON dumpable format or as a string denominating new lines with \n.
     # this method requires full testing for each API type currently implemented.
     # However, I think (and hope) this should largely work after debugging.
-    def JSONify(self, textToParse: str or list[str]) -> dict[str:any]:
+    def JSONify(self, textToParse: str or list[str], apiCalled: str) -> dict[str:any]:
+
 
         try:
             return json.loads(textToParse)
 
         except:
+            match apiCalled:
+                case "Hiscores":
+                    data = self._create_dict_from_list(self._csv_to_list(textToParse),
+                                                       util.UsefulLists.USER_LITE_SCORE_API_RESPONSE_ORDER)
+                case _:
+                    data = "Not_Parsable"
+            return data
 
-            data = self._parseMultiLinedString(textToParse)
+    def _csv_to_list(self, csv_string):
+        f = StringIO(csv_string)
+        list_of_csv = reader(f)
+        returnable = [row for row in list_of_csv]
+        return returnable
 
-            if len(data) == 0:
-                # TODO CReate exception for this line below
-                return ("Invalid Player Name")
+    def JSONifyPlayerHiscores(self, textToParse):
 
-            return json.dumps(dict(zip(USER_LITE_SCORE_API_RESPONSE_ORDER, data)))
+        return self._create_dict_from_list(self._csv_to_list(textToParse), util.UsefulLists.SKILL_NAMES)
+
+    # Convert the list of lists into a list of dictionaries
+    def _create_dict_from_list(self, csv_data, list_names):
+
+        names = list_names[:len(csv_data)]
+
+        # Create a dictionary with names as keys and rows as values
+        data = {name: row for name, row in zip(names, csv_data)}
+        return data
 
     def _parseMultiLinedString(self, textToParse: str) -> list[int or str]:
         return [[float(number) if number != '' else 0 for number in entry.split(",")] for entry in

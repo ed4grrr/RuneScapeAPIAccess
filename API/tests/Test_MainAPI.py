@@ -46,8 +46,8 @@ class _MainAPITestCase(unittest.TestCase):
         mock_urlopen.return_value = mock_response
         mock_request.return_value = Request("https://secure.runescape.com/m=hiscore/index_lite.ws?player=Zezima")
 
-        result = self.mainAPItest.request_and_decode_API_response(URL_templates.hiscores_lite_URL, self.userAgent,
-                                                                  ['Zezima'])
+        result = self.mainAPItest._request_and_decode_API_response(URL_templates.hiscores_lite_URL, self.userAgent,
+                                                                   ['Zezima'])
 
 if __name__ == '__main__':
     unittest.main()

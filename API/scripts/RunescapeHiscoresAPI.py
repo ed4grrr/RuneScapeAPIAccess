@@ -36,8 +36,9 @@ class RunescapeHiScoresAPI(API):
             https://runescape.wiki/w/Application_programming_interface#ranking
         """
 
-        return super().request_and_decode_API_response(URL_Templates.ranking_url, User_Agent_Strings.runescape_hiscores,
-                                                       [current_activity, skill_or_activity_name, amount_of_ranks])
+        return super()._request_and_decode_API_response(URL_Templates.ranking_url,
+                                                        User_Agent_Strings.runescape_hiscores,
+                                                        [current_activity, skill_or_activity_name, amount_of_ranks])
 
     def _get_userRanking(self, current_session_id: str) -> list:
         """
@@ -47,8 +48,8 @@ class RunescapeHiScoresAPI(API):
         :return: a list with the player name and their overall rank
         """
 
-        return super().request_and_decode_API_response(URL_Templates.userRanking_URL,
-                                                       User_Agent_Strings.runescape_hiscores, [current_session_id])
+        return super()._request_and_decode_API_response(URL_Templates.userRanking_URL,
+                                                        User_Agent_Strings.runescape_hiscores, [current_session_id])
 
     def get_player_hiscore(self, player_name: str = "Zezima") -> list:
         """
@@ -59,8 +60,8 @@ class RunescapeHiScoresAPI(API):
         :return: a list directly from Jagex that contains the information on that user as seen at
             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         """
-        return super().request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, [player_name])
+        return super()._request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
+                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
     def get_ironman_hiscore(self, player_name: str = "Gecu") -> list:
         """
@@ -70,8 +71,8 @@ class RunescapeHiScoresAPI(API):
             https://runescape.wiki/w/Application_programming_interface#Ironman_Lite
 
         """
-        return super().request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, [player_name])
+        return super()._request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL,
+                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
     def get_hardcore_ironman_hiscore(self, player_name: str = "J oris") -> list:
         """
@@ -80,10 +81,10 @@ class RunescapeHiScoresAPI(API):
         :return:  a list directly from Jagex that contains the information on that Hardcore Ironman user as seen at
             https://runescape.wiki/w/Application_programming_interface#Hardcore_Ironman_Lite
         """
-        return super().request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL,
-                                                       User_Agent_Strings.runescape_hiscores, [player_name])
+        return super()._request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL,
+                                                        User_Agent_Strings.runescape_hiscores, [player_name])
 
-    def get_boss_groups_data(self, size_of_group: str = "3", amount_of_entries_per_page: str = "10", boss_id: str = "3",
+    def get_boss_groups_data(self, size_of_group: str = "1", amount_of_entries_per_page: str = "10", boss_id: str = "3",
                              page_number: str = "1"):
         """
         Provides the information on group boss kills (including solo)
@@ -97,8 +98,8 @@ class RunescapeHiScoresAPI(API):
         https://runescape.wiki/w/Application_programming_interface#groups
         """
 
-        return super().request_and_decode_API_response(URL_Templates.boss_groups_URL,
-                                                       User_Agent_Strings.runescape_hiscores, [size_of_group,
+        return super()._request_and_decode_API_response(URL_Templates.boss_groups_URL,
+                                                        User_Agent_Strings.runescape_hiscores, [size_of_group,
                                                                                                amount_of_entries_per_page,
                                                                                                boss_id, page_number])
 
