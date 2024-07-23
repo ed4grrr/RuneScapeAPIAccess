@@ -22,8 +22,12 @@ class APIResponseParser():
         except:
             match apiCalled:
                 case "Hiscores":
+                    print("Hit hiscores")
                     data = self._create_dict_from_list(self._csv_to_list(textToParse),
                                                        util.UsefulLists.USER_LITE_SCORE_API_RESPONSE_ORDER)
+                case "Clans":
+                    print("Hit clans")
+                    data = self._parse_clan_data(textToParse)
                 case _:
                     data = "Not_Parsable"
             return data
@@ -34,6 +38,17 @@ class APIResponseParser():
         returnable = [row for row in list_of_csv]
         return returnable
 
+    def _parse_clan_data(self, clan_data):
+        clan_data_dict = {}
+        clan_data_split = clan_data.split("\n")
+        for clanmate in clan_data_split:
+            clanmate_details = clanmate.split(",")
+            if clanmate_details == ['']:
+                continue
+            clan_data_dict[clanmate_details[0]] = [clanmate_details[1], clanmate_details[2], clanmate_details[3]]
+        del clan_data_dict["Clanmate"]
+
+        return clan_data_dict
     def JSONifyPlayerHiscores(self, textToParse):
 
         return self._create_dict_from_list(self._csv_to_list(textToParse), util.UsefulLists.SKILL_NAMES)

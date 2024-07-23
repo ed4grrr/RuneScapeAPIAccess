@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Begun larger testing of API system and Parser">
+    <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Continued work on testing every method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Scratch_file/MultiClassTester.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/scripts/_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/tests/Test_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/tests/Test_MainAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/Runescape_HiScores_URL_Templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/Runescape_HiScores_URL_Templates.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +48,7 @@
     "Python.parser_function_Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Edgar W Bowlin III/PycharmProjects/Clan_Member_Rank_Check_handmade",
+    "last_opened_file_path": "D:/Python_Scripts/Runescape_Clan_Member_Rank_Checker",
     "settings.editor.selected.configurable": "advanced.settings"
   },
   "keyToStringList": {
