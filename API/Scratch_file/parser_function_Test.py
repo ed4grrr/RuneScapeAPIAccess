@@ -42,10 +42,9 @@ def call_all_methods(obj):
                 # Call the method and capture the result
                 result = attr()
                 if type(result) != str:
-                    result = result.read().decode("iso-8859-1")
-                print(f"Method {attr_name} called successfully.\nResult:\n{result.encode("iso-8859-1")}\n")
-                print(
-                    f"Parsing result: Type-> {type(parser.JSONify(result.replace('\r\n', '\n'), "Clans"))} \n{parser.JSONify(result, "Clans")}\n")
+                    result = result
+                print(f"Method {attr_name} called successfully.\nResult:\n{result}\n")
+
             except TypeError as e:
                 # Handle methods that require arguments or other TypeErrors
                 print(f"Method {attr_name} could not be called without arguments:\n{print_exception_info(e)}\n")
@@ -75,7 +74,7 @@ if __name__ == "__main__":
     api4 = RunescapeHiscoresSeasonalEventsAPI()
     api5 = GrandExhangeAPI()
 
-    obj_list = [api3]
+    obj_list = [api]
 
     multiple_objects_call_all_methods(obj_list)
 """    parser = APIResponseParser()

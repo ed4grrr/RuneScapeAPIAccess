@@ -2,6 +2,9 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+from APIResponseParsers.APIResponseToJSON import APIResponseParser
+
+parser = APIResponseParser()
 
 class _API:
     def __init__(self):
@@ -59,7 +62,9 @@ class _API:
         except URLError as e:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
-    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, *args: list[str]) -> list:
+    @parser
+    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, apiCalled: str,
+                                         *args: list[str]) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the
             child Classes.

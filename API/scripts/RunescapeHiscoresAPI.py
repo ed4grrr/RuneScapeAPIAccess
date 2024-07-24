@@ -37,7 +37,7 @@ class RunescapeHiScoresAPI(API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.ranking_url,
-                                                        User_Agent_Strings.runescape_hiscores,
+                                                        User_Agent_Strings.runescape_hiscores, "Hiscores",
                                                         [current_activity, skill_or_activity_name, amount_of_ranks])
 
     def _get_userRanking(self, current_session_id: str) -> list:

@@ -6,8 +6,19 @@ import util.UsefulLists
 
 
 class APIResponseParser():
-    def __init__(self):
-        pass
+    def __init__(self, *args, **kwargs):
+        self.args = args
+        self.kwargs = kwargs
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            # Call the function to get the raw data
+            textToParse = func(*args, **kwargs)
+            # Use the parser to parse the raw data
+            return self.JSONify(textToParse, self.kwargs.get("apiCalled"))
+
+        return wrapper
+
 
     # My reasoning here, so far, is that either the response is going to be
     # either in a JSON dumpable format or as a string denominating new lines with \n.
@@ -15,19 +26,22 @@ class APIResponseParser():
     # However, I think (and hope) this should largely work after debugging.
     def JSONify(self, textToParse: str or list[str], apiCalled: str) -> dict[str:any]:
 
+        decodedText = textToParse
+        if type(textToParse) is not str:
+            decodedText = textToParse.read().decode("iso-8859-1")
 
         try:
-            return json.loads(textToParse)
+            return json.loads(decodedText)
 
         except:
             match apiCalled:
                 case "Hiscores":
                     print("Hit hiscores")
-                    data = self._create_dict_from_list(self._csv_to_list(textToParse),
+                    data = self._create_dict_from_list(self._csv_to_list(decodedText),
                                                        util.UsefulLists.USER_LITE_SCORE_API_RESPONSE_ORDER)
                 case "Clans":
                     print("Hit clans")
-                    data = self._parse_clan_data(textToParse)
+                    data = self._parse_clan_data(decodedText)
                 case _:
                     data = "Not_Parsable"
             return data
