@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Changed apiCalled strings into enums to make the code more easily readable and modifiable">
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/API_NAME_ENUM.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/API_NAME_ENUM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/commonImports.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/commonImports.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721931676493</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changed apiCalled strings into enums to make the code more easily readable and modifiable">
+      <option name="closed" value="true" />
+      <created>1721931945881</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721931945881</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

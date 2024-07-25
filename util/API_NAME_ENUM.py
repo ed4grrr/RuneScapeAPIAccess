@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class APINameEnums(Enum):
     HISCORES = 0
     CLANS = 1
