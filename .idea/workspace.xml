@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Continuing work on Parser">
+    <list default="true" id="f6b57f74-2069-4275-9412-9849025022c7" name="Changes" comment="Changed parser to be a decorator. Still need to update child object to account for new apiCall argument in _API">
+      <change afterPath="$PROJECT_DIR$/util/API_NAME_ENUM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/commonImports.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/Scratch_file/parser_function_Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunemetricsAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresClansAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/WeirdGloopGrandExhangeAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/scripts/_MainAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/scripts/_MainAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" beforeDir="false" afterPath="$PROJECT_DIR$/APIResponseParsers/APIResponseToJSON.py" afterDir="false" />
     </list>
@@ -148,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721766926880</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Changed parser to be a decorator. Still need to update child object to account for new apiCall argument in _API">
+      <option name="closed" value="true" />
+      <created>1721862167113</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721862167113</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -162,27 +174,10 @@
     <MESSAGE value="Finished adding API endpoint contact methods. The others may be added as necessary." />
     <MESSAGE value="Created first full test case for _MainAPI.py. Reconfigured type hinting in API to use a list of strings instead of *args. More work necessary to complete." />
     <MESSAGE value="Continuing work on Parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continuing work on Parser" />
+    <MESSAGE value="Changed parser to be a decorator. Still need to update child object to account for new apiCall argument in _API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed parser to be a decorator. Still need to update child object to account for new apiCall argument in _API" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/API/scripts/_MainAPI.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/API/scripts/RunemetricsAPI.py</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/API/scripts/RunescapeHiscoresSeasonalEventsAPI.py</url>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

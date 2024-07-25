@@ -2,6 +2,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+import util.API_NAME_ENUM as API_NAME_ENUM
 from APIResponseParsers.APIResponseToJSON import APIResponseParser
 
 parser = APIResponseParser()
@@ -63,7 +64,7 @@ class _API:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
     @parser
-    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, apiCalled: str,
+    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, apiCalled: API_NAME_ENUM,
                                          *args: list[str]) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the

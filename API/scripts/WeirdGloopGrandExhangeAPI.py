@@ -1,5 +1,4 @@
-import util.RASPIAUserAgentStrings as User_Agent_Strings
-import util.Runescape_HiScores_URL_Templates as URL_Templates
+from util.commonImports import APINameEnums, User_Agent_Strings, URL_Templates
 from ._MainAPI import _API
 
 
@@ -15,7 +14,8 @@ class GrandExhangeAPI(_API):
         https://api.weirdgloop.org/#/exchange/getExchangeCurrentPrice
         """
         return self._request_and_decode_API_response(URL_Templates.weird_gloop_GE_price_check_URL,
-                                                     User_Agent_Strings.weird_gloop_GE, [item_name])
+                                                     User_Agent_Strings.weird_gloop_GE, APINameEnums.GRANDEXCHANGE,
+                                                     [item_name])
 
     def get_price_history_all_by_name(self, item_name: str = "Abyssal Whip") -> list:
         """
@@ -25,7 +25,8 @@ class GrandExhangeAPI(_API):
         https://api.weirdgloop.org/#/exchange/getExchangeHistoryAll
         """
         return self._request_and_decode_API_response(URL_Templates.weird_gloop_GE_price_history_all_URL,
-                                                     User_Agent_Strings.weird_gloop_GE, [item_name])
+                                                     User_Agent_Strings.weird_gloop_GE, APINameEnums.GRANDEXCHANGE,
+                                                     [item_name])
 
     def get_price_history_sample_by_name(self, item_name: str = "Abyssal Whip") -> list:
         """
@@ -35,7 +36,8 @@ class GrandExhangeAPI(_API):
         https://api.weirdgloop.org/#/exchange/getExchangeHistoryAll
         """
         return self._request_and_decode_API_response(URL_Templates.weird_gloop_GE_price_history_sample_URL,
-                                                     User_Agent_Strings.weird_gloop_GE, [item_name])
+                                                     User_Agent_Strings.weird_gloop_GE, APINameEnums.GRANDEXCHANGE,
+                                                     [item_name])
 
     def get_price_history_last90d_by_name(self, item_name: str = "Abyssal Whip") -> list:
         """
@@ -45,4 +47,5 @@ class GrandExhangeAPI(_API):
         https://api.weirdgloop.org/#/exchange/getExchangeHistoryAll
         """
         return self._request_and_decode_API_response(URL_Templates.weird_gloop_GE_price_history_last90d_URL,
-                                                     User_Agent_Strings.weird_gloop_GE, [item_name])
+                                                     User_Agent_Strings.weird_gloop_GE, APINameEnums.GRANDEXCHANGE,
+                                                     [item_name])

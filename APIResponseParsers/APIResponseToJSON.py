@@ -3,6 +3,7 @@ from csv import reader
 from io import StringIO
 
 import util.UsefulLists
+from util.commonImports import APINameEnums
 
 
 class APIResponseParser():
@@ -24,7 +25,7 @@ class APIResponseParser():
     # either in a JSON dumpable format or as a string denominating new lines with \n.
     # this method requires full testing for each API type currently implemented.
     # However, I think (and hope) this should largely work after debugging.
-    def JSONify(self, textToParse: str or list[str], apiCalled: str) -> dict[str:any]:
+    def JSONify(self, textToParse: str or list[str], apiCalled: APINameEnums) -> dict[str:any]:
 
         decodedText = textToParse
         if type(textToParse) is not str:
@@ -35,11 +36,11 @@ class APIResponseParser():
 
         except:
             match apiCalled:
-                case "Hiscores":
+                case APINameEnums.HISCORES:
                     print("Hit hiscores")
                     data = self._create_dict_from_list(self._csv_to_list(decodedText),
                                                        util.UsefulLists.USER_LITE_SCORE_API_RESPONSE_ORDER)
-                case "Clans":
+                case APINameEnums.GRANDEXCHANGE:
                     print("Hit clans")
                     data = self._parse_clan_data(decodedText)
                 case _:

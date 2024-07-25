@@ -14,8 +14,8 @@ file.
 
 """
 
-import util.RASPIAUserAgentStrings as User_Agent_Strings
-import util.Runescape_HiScores_URL_Templates as URL_Templates
+
+from util.commonImports import APINameEnums, User_Agent_Strings, URL_Templates
 from ._MainAPI import _API as API
 
 
@@ -37,7 +37,7 @@ class RunescapeHiScoresAPI(API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.ranking_url,
-                                                        User_Agent_Strings.runescape_hiscores, "Hiscores",
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
                                                         [current_activity, skill_or_activity_name, amount_of_ranks])
 
     def _get_userRanking(self, current_session_id: str) -> list:
@@ -49,7 +49,8 @@ class RunescapeHiScoresAPI(API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.userRanking_URL,
-                                                        User_Agent_Strings.runescape_hiscores, [current_session_id])
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
+                                                        [current_session_id])
 
     def get_player_hiscore(self, player_name: str = "Zezima") -> list:
         """
@@ -61,7 +62,8 @@ class RunescapeHiScoresAPI(API):
             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         """
         return super()._request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
-                                                        User_Agent_Strings.runescape_hiscores, [player_name])
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
+                                                        [player_name])
 
     def get_ironman_hiscore(self, player_name: str = "Gecu") -> list:
         """
@@ -72,7 +74,8 @@ class RunescapeHiScoresAPI(API):
 
         """
         return super()._request_and_decode_API_response(URL_Templates.ironman_hiscores_lite_URL,
-                                                        User_Agent_Strings.runescape_hiscores, [player_name])
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
+                                                        [player_name])
 
     def get_hardcore_ironman_hiscore(self, player_name: str = "J oris") -> list:
         """
@@ -82,7 +85,8 @@ class RunescapeHiScoresAPI(API):
             https://runescape.wiki/w/Application_programming_interface#Hardcore_Ironman_Lite
         """
         return super()._request_and_decode_API_response(URL_Templates.hardcore_ironman_hiscores_lite_URL,
-                                                        User_Agent_Strings.runescape_hiscores, [player_name])
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
+                                                        [player_name])
 
     def get_boss_groups_data(self, size_of_group: str = "1", amount_of_entries_per_page: str = "10", boss_id: str = "3",
                              page_number: str = "1"):
@@ -99,7 +103,8 @@ class RunescapeHiScoresAPI(API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.boss_groups_URL,
-                                                        User_Agent_Strings.runescape_hiscores, [size_of_group,
+                                                        User_Agent_Strings.runescape_hiscores, APINameEnums.HISCORES,
+                                                        [size_of_group,
                                                                                                amount_of_entries_per_page,
                                                                                                boss_id, page_number])
 
