@@ -2,56 +2,46 @@ import json
 from csv import reader
 from io import StringIO
 
+from util.UsefulLists import USER_LITE_SCORE_API_RESPONSE_ORDER
+
 import util.UsefulLists
-from util.commonImports import APINameEnums
+from util.commonImports import APINameEnums,URL_Templates
 
 
-class APIResponseParser():
-    def __init__(self, *args, **kwargs):
+
+class APIResponseParser:
+    def __init__(self,*args,**kwargs,):
+        self.APIParser = new_parsers()
         self.args = args
         self.kwargs = kwargs
 
     def __call__(self, func):
         def wrapper(*args, **kwargs):
+            print(f"{args}")
             # Call the function to get the raw data
             textToParse = func(*args, **kwargs)
             # Use the parser to parse the raw data
-            return self.JSONify(textToParse, self.kwargs.get("apiCalled"))
+            return self.choose_parser(textToParse, args[1])
 
         return wrapper
 
+    def choose_parser(self, toDecode:str, URL_template:str):
+        match URL_Templates.search_api_list(URL_template):
+            case APINameEnums.CLANS:
+                return self.APIParser._parse_clan_data(toDecode)
+            case APINameEnums.HISCORES_LITE:
+                return self.APIParser._parseUserHighScores(toDecode)
+            case APINameEnums.JSON:
+                return self.APIParser._parseJSON(toDecode)
+            case _ :
+                raise NotImplemented("Parser Not Implemented")
 
-    # My reasoning here, so far, is that either the response is going to be
-    # either in a JSON dumpable format or as a string denominating new lines with \n.
-    # this method requires full testing for each API type currently implemented.
-    # However, I think (and hope) this should largely work after debugging.
-    def JSONify(self, textToParse: str or list[str], apiCalled: APINameEnums) -> dict[str:any]:
 
-        decodedText = textToParse
-        if type(textToParse) is not str:
-            decodedText = textToParse.read().decode("iso-8859-1")
 
-        try:
-            return json.loads(decodedText)
 
-        except:
-            match apiCalled:
-                case APINameEnums.HISCORES:
-                    print("Hit hiscores")
-                    data = self._create_dict_from_list(self._csv_to_list(decodedText),
-                                                       util.UsefulLists.USER_LITE_SCORE_API_RESPONSE_ORDER)
-                case APINameEnums.GRANDEXCHANGE:
-                    print("Hit clans")
-                    data = self._parse_clan_data(decodedText)
-                case _:
-                    data = "Not_Parsable"
-            return data
-
-    def _csv_to_list(self, csv_string):
-        f = StringIO(csv_string)
-        list_of_csv = reader(f)
-        returnable = [row for row in list_of_csv]
-        return returnable
+class new_parsers():
+    def __init__(self):
+        pass
 
     def _parse_clan_data(self, clan_data):
         clan_data_dict = {}
@@ -60,26 +50,24 @@ class APIResponseParser():
             clanmate_details = clanmate.split(",")
             if clanmate_details == ['']:
                 continue
-            clan_data_dict[clanmate_details[0]] = [clanmate_details[1], clanmate_details[2], clanmate_details[3]]
+            clan_data_dict[clanmate_details[0]] = {"clanRank":clanmate_details[1], "totalXP":clanmate_details[2],
+                                                   "kills":clanmate_details[3]}
         del clan_data_dict["Clanmate"]
 
         return clan_data_dict
-    def JSONifyPlayerHiscores(self, textToParse):
 
-        return self._create_dict_from_list(self._csv_to_list(textToParse), util.UsefulLists.SKILL_NAMES)
+    def _parseJSON(self, string):
+        return json.loads(string)
 
-    # Convert the list of lists into a list of dictionaries
-    def _create_dict_from_list(self, csv_data, list_names):
-
-        names = list_names[:len(csv_data)]
-
-        # Create a dictionary with names as keys and rows as values
-        data = {name: row for name, row in zip(names, csv_data)}
-        return data
-
-    def _parseMultiLinedString(self, textToParse: str) -> list[int or str]:
-        return [[float(number) if number != '' else 0 for number in entry.split(",")] for entry in
+    def _parseUserHighScores(self, textToParse: str) -> dict:
+        data = [[float(number) if number != '' else 0 for number in entry.split(",")] for entry in
                 textToParse.split("\n")]
+
+        if len(data) == 0:
+            return {"Error":"Invalid Player Name"}
+
+        return dict(zip(USER_LITE_SCORE_API_RESPONSE_ORDER, data))
+
 
 
 if __name__ == "__main__":
@@ -142,5 +130,15 @@ if __name__ == "__main__":
     41939,77\n\
     36068,68\n\
     22156,12"
-    test = APIResponseParser()
-    print(test.JSONify(textToParse))
+    test = new_parsers()
+    print(test._unlistAString('[{"name":"Lady Boo 1","score":"200,000,000","rank":"1"},\
+{"name":"Allar","score":"200,000,000","rank":"2"},\
+{"name":"lan","score":"200,000,000","rank":"3"},\
+{"name":"Deja Vu Xiii","score":"200,000,000","rank":"4"},\
+{"name":"Kh510","score":"200,000,000","rank":"5"},\
+{"name":"Spdavis","score":"200,000,000","rank":"6"},\
+{"name":"Petite","score":"200,000,000","rank":"7"},\
+{"name":"Rasial God","score":"200,000,000","rank":"8"},\
+{"name":"Drumgun","score":"200,000,000","rank":"9"},\
+{"name":"Evil Abyssal","score":"200,000,000","rank":"10"}]\
+'))

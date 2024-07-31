@@ -50,7 +50,7 @@ class _API:
         """
 
         :param api_request: a string that holds the url to request data from
-        :return: either a urlopen object or str if error
+        :return: either an urlopen object or str if error
         """
         try:
             with urlopen(api_request) as r:
@@ -63,8 +63,26 @@ class _API:
         except URLError as e:
             return f"Failed to reach Server, \nReason: {e.reason} "
 
+
+
+    def _f_request_and_decode_API_response(self, URL_template: str, user_agent: str,
+                                         *args: list[str]) -> list:
+        """
+        This is the actual function a user should call to request and obtain data from one of the
+            child Classes.
+        :param URL_template: string containing the API URL needed formated to accept user input
+        :param user_agent: string containing the intended use of that api information
+        :param args: strings that contain the user supplied inputs necessary in the URL_Template
+        :return: a list of the information provided by the api call
+        """
+        api_request = self._create_Request_from_URL_template(URL_template, user_agent, *args)
+
+        data = self._call_API(api_request)
+
+        return data
+
     @parser
-    def _request_and_decode_API_response(self, URL_template: str, user_agent: str, apiCalled: API_NAME_ENUM,
+    def _request_and_decode_API_response(self, URL_template: str, user_agent: str,
                                          *args: list[str]) -> list:
         """
         This is the actual function a user should call to request and obtain data from one of the

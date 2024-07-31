@@ -1,3 +1,3 @@
-from API_NAME_ENUM import APINameEnums
-import RASPIAUserAgentStrings as User_Agent_Strings
-import Runescape_HiScores_URL_Templates as URL_Templates
+from util.API_NAME_ENUM import APINameEnums
+import util.RASPIAUserAgentStrings as User_Agent_Strings
+import util.Runescape_HiScores_URL_Templates as URL_Templates

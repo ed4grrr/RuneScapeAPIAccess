@@ -16,7 +16,7 @@ class RunescapeHiscoresClansAPI(_API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                        User_Agent_Strings.runescape_clans, APINameEnums.CLANS)
+                                                        User_Agent_Strings.runescape_clans)
 
     def _get_user_clan_ranking(self, user_session_id: str) -> list:
         """
@@ -27,7 +27,7 @@ class RunescapeHiscoresClansAPI(_API):
         """
 
         return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                        User_Agent_Strings.runescape_clans, APINameEnums.CLANS,
+                                                        User_Agent_Strings.runescape_clans,
                                                         [user_session_id])
 
     def get_clan_members_lite(self, clan_name: str = "The Citadel Kingdom") -> list:
@@ -39,5 +39,5 @@ class RunescapeHiscoresClansAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
         """
         return super()._request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
-                                                        User_Agent_Strings.runescape_clans, APINameEnums.CLANS,
+                                                        User_Agent_Strings.runescape_clans,
                                                         [clan_name])
