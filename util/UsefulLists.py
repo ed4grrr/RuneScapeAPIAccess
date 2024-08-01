@@ -1,3 +1,13 @@
+"""
+UsefulLists.py
+Runescape API Access -> RASPIA
+Edgar Bowlin III
+
+Useful lists (and other data structures) that store various data pertaining to various aspects of Runescape.
+These are used throughout many scripts I have made.
+"""
+
+
 from collections import OrderedDict
 from enum import Enum
 

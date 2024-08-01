@@ -109,11 +109,3 @@ class RunescapeHiScoresAPI(API):
 
 
 
-if __name__ == "__main__":
-    test = RunescapeHiScoresAPI()
-    user_entry_no_space = "Zezima"
-    user_entry_space = "Iron man"
-
-    response = test.get_player_hiscore(user_entry_space)
-
-    print(response.read().decode().split("\n"))

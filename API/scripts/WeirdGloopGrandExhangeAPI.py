@@ -1,3 +1,22 @@
+"""
+WeirdGloopGrandExhangeAPI.py
+Runescape API Access -> RASPIA
+Edgar Bowlin III
+
+This serves as an easy way to access each Weird Gloop Grand Exchange API endpoint
+https://api.weirdgloop.org/.
+Credit for the information on how to access APIs goes to the authors of
+the above article
+
+Some Endpoints have been left out. They will be added as their function is understood enough
+to abstract the parameters like category and table seen in the util.Runescape_Hiscores_URL_Templates.py
+file.
+
+"""
+
+
+
+
 from util.commonImports import APINameEnums, User_Agent_Strings, URL_Templates
 from ._MainAPI import _API
 

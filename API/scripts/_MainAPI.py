@@ -1,3 +1,22 @@
+"""
+_MainAPI.py
+Runescape API Access -> RASPIA
+Edgar Bowlin III
+
+This is an abstract method, meant only to act as a parent to a concrete child class. As seen in this class, and all children,
+some functions begin with '_'. These functions should not be called directly outside of these scripts as they are
+used internally within this library.
+
+Some of these are truly internal functions. The rest (largely seen in only the Child classes) are methods accessing APIs
+where either I am stupid or the documentation is not the greatest on how to use, do not seem to be active, or any other
+reason that may cause them to be highly unreliable.
+
+As I continue with this project, I hope to test the "broken" internal functions to provide wider access to the more
+niche endpoints.
+"""
+
+
+
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
@@ -5,9 +24,15 @@ from urllib.request import Request, urlopen
 import util.API_NAME_ENUM as API_NAME_ENUM
 from APIResponseParsers.APIResponseToJSON import APIResponseParser
 
+# this parser serves to wrap _request_and_decode_API_response results
+# and return a user-friendly data structure. However, all data is
+# still in a string format. It is up to the user to verify the data.
 parser = APIResponseParser()
 
 class _API:
+    """
+    The abstract parent class for all API accessing classes.
+    """
     def __init__(self):
         pass
 
@@ -27,7 +52,10 @@ class _API:
         """
         used to create a usable url from user input
         :param URL_template: a string containing the API URL with formating marks {0}, {1}, etc. for all user
-        entered arguments
+            entered arguments
+        :param user_agent: a string meant to describe the device that is running your program, HOWEVER, when using
+            the RS Wiki APIs, they request that the user agent string be a name describing the end use of the data.
+            For example, "Firemaking_Item_Price_Scraper"
         :param user_entered_arguments: strings containing the arguments a user has entered
         :return:
         """
@@ -68,10 +96,13 @@ class _API:
     def _f_request_and_decode_API_response(self, URL_template: str, user_agent: str,
                                          *args: list[str]) -> list:
         """
-        This is the actual function a user should call to request and obtain data from one of the
-            child Classes.
+        This is NOT the actual function a user should call to request and obtain data from one of the
+            child Classes. This function is only to be used when testing new endpoints as there is no
+            parsing wrapper around this function.
         :param URL_template: string containing the API URL needed formated to accept user input
-        :param user_agent: string containing the intended use of that api information
+        :param user_agent: a string meant to describe the device that is running your program, HOWEVER, when using
+            the RS Wiki APIs, they request that the user agent string be a name describing the end use of the data.
+            For example, "Firemaking_Item_Price_Scraper"
         :param args: strings that contain the user supplied inputs necessary in the URL_Template
         :return: a list of the information provided by the api call
         """
@@ -85,12 +116,14 @@ class _API:
     def _request_and_decode_API_response(self, URL_template: str, user_agent: str,
                                          *args: list[str]) -> list:
         """
-        This is the actual function a user should call to request and obtain data from one of the
+        This is the ACTUAL function a user should call to request and obtain data from one of the
             child Classes.
         :param URL_template: string containing the API URL needed formated to accept user input
-        :param user_agent: string containing the intended use of that api information
+        :param user_agent: a string meant to describe the device that is running your program, HOWEVER, when using
+            the RS Wiki APIs, they request that the user agent string be a name describing the end use of the data.
+            For example, "Firemaking_Item_Price_Scraper"
         :param args: strings that contain the user supplied inputs necessary in the URL_Template
-        :return: a list of the information provided by the api call
+        :return: a parsed response from the API
         """
         api_request = self._create_Request_from_URL_template(URL_template, user_agent, *args)
 
@@ -98,15 +131,3 @@ class _API:
 
         return data
 
-
-if __name__ == "__main__":
-    api_test = _API()
-    test_URL_template = 'https://secure.runescape.com/m=hiscore/index_lite.ws?player={0}'
-    user_entry_no_space = "Zezima"
-    user_entry_space = "Iron man"
-    args = ["player name", "skill/ID", "#dogg ", "_$@^edgar "]
-
-    print(api_test._clean_user_inputs(args))
-
-    # print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_no_space))
-    # print(api_test._create_Request_from_URL_template(test_URL_template, user_entry_space))

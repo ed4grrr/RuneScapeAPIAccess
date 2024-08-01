@@ -1,4 +1,21 @@
-from util.commonImports import APINameEnums, URL_Templates, User_Agent_Strings
+"""
+RunemetricsAPI.py
+Runescape API Access -> RASPIA
+Edgar Bowlin III
+
+This serves as an easy way to access each Runemetrics API endpoint
+https://runescape.wiki/w/Application_programming_interface#Runemetrics.
+Credit for the information on how to access APIs goes to the authors of
+the above article
+
+Some Endpoints have been left out. They will be added as their function is understood enough
+to abstract the parameters like category and table seen in the util.Runescape_Hiscores_URL_Templates.py
+file.
+
+"""
+
+
+from util.commonImports import URL_Templates, User_Agent_Strings
 from ._MainAPI import _API
 
 
@@ -9,7 +26,7 @@ class RunemetricAPI(_API):
         super().__init__()
 
 
-#TODO determine return type for runemetrics based "api" responses
+
     def get_player_profile(self, player_name="Zezima") -> list:
         """
         provides the player profile from Runemetrics, as described at
@@ -27,7 +44,7 @@ class RunemetricAPI(_API):
                                                         User_Agent_Strings.runemetrics,
                                                         [player_name])
 
-    def get_player_monthly_xp(self, player_name: str = "Zezima", skill_id: str = "2") -> list:
+    def _get_player_monthly_xp(self, player_name: str = "Zezima", skill_id: str = "2") -> list:
         """
         provides the monthly_xp over the last 12 months for the given user
         :param URL_template: the url template required for getting monthly xp totals for a specificed player

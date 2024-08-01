@@ -1,4 +1,22 @@
-from util.commonImports import APINameEnums, User_Agent_Strings, URL_Templates
+"""
+RunescapeHiscoresSeasonalEventsAPI.py
+Runescape Experience Calculator
+Edgar Bowlin III
+
+This serves as an easy way to access each Runescape Hiscores Seasonal Events API endpoints
+as seen at https://runescape.wiki/w/Application_programming_interface#Seasonal.
+Credit for the information on how to access APIs goes to the authors of
+the above article
+
+Some Endpoints have been left out. They will be added as their function is understood enough
+to abstract the parameters like category and table seen in the util.Runescape_Hiscores_URL_Templates.py
+file.
+
+"""
+
+
+
+from util.commonImports import  User_Agent_Strings, URL_Templates
 from ._MainAPI import _API
 
 

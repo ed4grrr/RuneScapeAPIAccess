@@ -1,3 +1,20 @@
+"""
+Runescape_HiScores_URL_Templates.py
+Runescape API Access -> RASPIA
+Edgar Bowlin III
+
+Templates used to go to the various RuneScape related APIs, so they are abstracted away from
+the user.
+
+
+If developing more APIs, just add more endpoints to this file. Make sure to update API_NAME_ENUM.py
+and RASPIAUserAgentStrings with the relevant data/functionality to deal with custom endpoints.
+
+"""
+
+
+
+
 import util.API_NAME_ENUM as API_NAME_ENUM
 
 
@@ -132,17 +149,22 @@ SEARCHABLE_API_ENDPOINTS = { API_NAME_ENUM.APINameEnums.CLANS:REVERSED_API_ENDPO
 
 
 
-def search_api_list(URL_template:str):
-    print(f"This is the url template in question {URL_template}")
+def search_api_list(URL_template:str)-> API_NAME_ENUM.APINameEnums | None:
+    """
+    Returns the enum representing the parser meant to be used.
+    :param URL_template: the template that we used to get the response
+    :return: the enum of the parser, or None if no suitable parser is found
+    """
+    #print(f"This is the url template in question {URL_template}")
     for parserType,dict in SEARCHABLE_API_ENDPOINTS.items():
         try:
-            print(f"Trying to find {URL_template}")
+            #print(f"Trying to find {URL_template}")
             test =dict[URL_template]
-            print(f"Returning {parserType}")
+            #print(f"Returning {parserType}")
             return parserType
         except :
             continue
-    print(f"Didn't find anything")
+    #print(f"Didn't find anything")
     return None
 
 
