@@ -4,7 +4,7 @@ Runescape API Access -> RASPIA
 Edgar Bowlin III
 
 This is an abstract method, meant only to act as a parent to a concrete child class. As seen in this class, and all children,
-some functions begin with '_'. These functions should not be called directly outside of these scripts as they are
+some functions begin with '_'. These functions should not be called directly outside of these src as they are
 used internally within this library.
 
 Some of these are truly internal functions. The rest (largely seen in only the Child classes) are methods accessing APIs
@@ -21,8 +21,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
-import util.API_NAME_ENUM as API_NAME_ENUM
-from APIResponseParsers.APIResponseToJSON import APIResponseParser
+from API.src.APIResponseToJSON import APIResponseParser
 
 # this parser serves to wrap _request_and_decode_API_response results
 # and return a user-friendly data structure. However, all data is

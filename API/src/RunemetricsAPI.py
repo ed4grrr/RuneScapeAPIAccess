@@ -15,7 +15,7 @@ file.
 """
 
 
-from util.commonImports import URL_Templates, User_Agent_Strings
+from API.util.commonImports import URL_Templates, User_Agent_Strings
 from ._MainAPI import _API
 
 

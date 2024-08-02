@@ -11,8 +11,8 @@ child and wraps the function that retrieves data from the desired server.
 """
 
 import json
-from util.UsefulLists import USER_LITE_SCORE_API_RESPONSE_ORDER
-from util.commonImports import APINameEnums, URL_Templates
+from API.util.UsefulLists import USER_LITE_SCORE_API_RESPONSE_ORDER
+from API.util.commonImports import APINameEnums, URL_Templates
 
 
 class APIResponseParser:
@@ -38,6 +38,7 @@ class APIResponseParser:
         return wrapper
 
     def choose_parser(self, toDecode: str, URL_template: str):
+
         """
         This serves to determine the appropriate parsing strategy based on the response.
             To extend this system, a new APINameEnum must be created alongside another parsing strategy method.

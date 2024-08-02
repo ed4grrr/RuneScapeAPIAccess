@@ -1,12 +1,12 @@
 import traceback
 from time import sleep
 
-from API.scripts.RunemetricsAPI import RunemetricAPI
-from API.scripts.RunescapeHiscoresAPI import RunescapeHiScoresAPI
-from API.scripts.RunescapeHiscoresClansAPI import RunescapeHiscoresClansAPI
-from API.scripts.RunescapeHiscoresSeasonalEventsAPI import RunescapeHiscoresSeasonalEventsAPI
-from API.scripts.WeirdGloopGrandExhangeAPI import GrandExhangeAPI
-from APIResponseParsers.APIResponseToJSON import APIResponseParser
+from API.src.RunemetricsAPI import RunemetricAPI
+from API.src.RunescapeHiscoresAPI import RunescapeHiScoresAPI
+from API.src.RunescapeHiscoresClansAPI import RunescapeHiscoresClansAPI
+from API.src.RunescapeHiscoresSeasonalEventsAPI import RunescapeHiscoresSeasonalEventsAPI
+from API.src.WeirdGloopGrandExhangeAPI import GrandExhangeAPI
+from API.src.APIResponseToJSON import APIResponseParser
 from datetime import datetime
 
 # Get the current date and time
@@ -14,9 +14,6 @@ now = datetime.now()
 
 # Format the date and time to include milliseconds
 formatted_time = now.strftime('%Y_%m_%d_%H_%M_%S_%f')
-
-# Round milliseconds to the nearest tenth of a second
-# Extract milliseconds from formatted_time
 
 
 

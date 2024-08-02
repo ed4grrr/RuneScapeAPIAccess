@@ -15,7 +15,7 @@ and RASPIAUserAgentStrings with the relevant data/functionality to deal with cus
 
 
 
-import util.API_NAME_ENUM as API_NAME_ENUM
+import API.util.API_NAME_ENUM as API_NAME_ENUM
 
 
 # *****************************************RUNESCAPE HISCORES URLS*****************************************
@@ -143,9 +143,9 @@ REVERSED_API_ENDPOINTS_NEEDING_CLAN_PARSE = {
     'http://services.runescape.com/m=clan-hiscores/members_lite.ws?clanName={0}': 'clan_members_lite_URL'
 }
 
-SEARCHABLE_API_ENDPOINTS = { API_NAME_ENUM.APINameEnums.CLANS:REVERSED_API_ENDPOINTS_NEEDING_CLAN_PARSE,
+SEARCHABLE_API_ENDPOINTS = {API_NAME_ENUM.APINameEnums.CLANS:REVERSED_API_ENDPOINTS_NEEDING_CLAN_PARSE,
                             API_NAME_ENUM.APINameEnums.HISCORES_LITE:REVERSED_API_ENDPOINTS_NEEDING_HISCORE_LITE_PARSE
-                            ,API_NAME_ENUM.APINameEnums.JSON:REVERSED_API_ENDPOINTS_NEEDING_JSON_PARSE}
+                            , API_NAME_ENUM.APINameEnums.JSON:REVERSED_API_ENDPOINTS_NEEDING_JSON_PARSE}
 
 
 
