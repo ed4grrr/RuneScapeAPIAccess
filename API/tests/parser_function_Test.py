@@ -1,12 +1,12 @@
 import traceback
 from time import sleep
 
-from API.src.RunemetricsAPI import RunemetricAPI
-from API.src.RunescapeHiscoresAPI import RunescapeHiScoresAPI
-from API.src.RunescapeHiscoresClansAPI import RunescapeHiscoresClansAPI
-from API.src.RunescapeHiscoresSeasonalEventsAPI import RunescapeHiscoresSeasonalEventsAPI
-from API.src.WeirdGloopGrandExhangeAPI import GrandExhangeAPI
-from API.src.APIResponseToJSON import APIResponseParser
+from API.src.API_Accessors.RunemetricsAPI import RunemetricAPI
+from API.src.API_Accessors.RunescapeHiscoresAPI import RunescapeHiScoresAPI
+from API.src.API_Accessors.RunescapeHiscoresClansAPI import RunescapeHiscoresClansAPI
+from API.src.API_Accessors.RunescapeHiscoresSeasonalEventsAPI import RunescapeHiscoresSeasonalEventsAPI
+from API.src.API_Accessors.WeirdGloopGrandExhangeAPI import GrandExhangeAPI
+from API.src.Parsers.APIResponseToJSON import APIResponseParser
 from datetime import datetime
 
 # Get the current date and time

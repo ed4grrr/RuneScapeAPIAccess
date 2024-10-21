@@ -11,7 +11,7 @@ child and wraps the function that retrieves data from the desired server.
 """
 
 import json
-from API.util.UsefulLists import USER_LITE_SCORE_API_RESPONSE_ORDER
+
 from API.util.commonImports import APINameEnums, URL_Templates
 
 
@@ -95,24 +95,10 @@ class ParsingStrategies():
 
     def _parseJSON(self, string):
         """
-        Use this parser to create a python friendly dict or list of dicts from most of the RS-related APIs
+        Use this parser to create a python friendly dict or list of dicts from most of the RS-related API_Accessors
 
         :param string: the JSON string returned from the API
         :return: a dict or list containing dicts with the parsed response. all data entries are STILL STRINGS
         """
         return json.loads(string)
 
-    def _parseUserHighScores(self, textToParse: str) -> dict:
-        """
-        Use this to parse a user's hiscore api response. Doesn't matter if Main/Iron/Hardcore
-        :param textToParse: the CSV string that is returned from the official RS HiScores API
-        :return: a dict containing either an error or a dict of the requested user's hiscore data
-        """
-
-        data = [[float(number) if number != '' else 0 for number in entry.split(",")] for entry in
-                textToParse.split("\n")]
-
-        if len(data) == 0:
-            return {"Error": "Invalid Player Name"}
-
-        return dict(zip(USER_LITE_SCORE_API_RESPONSE_ORDER, data))

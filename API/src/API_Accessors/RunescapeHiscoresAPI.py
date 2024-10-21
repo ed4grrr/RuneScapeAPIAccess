@@ -5,7 +5,7 @@ Edgar Bowlin III
 
 This serves as an easy way to access each Runescape Hiscorces API endpoints
 as seen at https://runescape.wiki/w/Application_programming_interface#Hiscores.
-Credit for the information on how to access APIs goes to the authors of
+Credit for the information on how to access API_Accessors goes to the authors of
 the above article
 
 Some Endpoints have been left out. They will be added as their function is understood enough
@@ -60,6 +60,7 @@ class RunescapeHiScoresAPI(API):
         :return: a list directly from Jagex that contains the information on that user as seen at
             https://runescape.wiki/w/Application_programming_interface#Hiscores_Lite
         """
+
         return super()._request_and_decode_API_response(URL_Templates.hiscores_lite_URL,
                                                         User_Agent_Strings.runescape_hiscores,
                                                         [player_name])

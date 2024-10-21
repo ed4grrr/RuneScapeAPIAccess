@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 
 import API.util.Runescape_HiScores_URL_Templates as URL_templates
-from API.src._MainAPI import _API, Request
+from API.src.API_Accessors._MainAPI import _API, Request
 
 
 class _MainAPITestCase(unittest.TestCase):

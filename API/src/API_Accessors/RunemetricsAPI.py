@@ -5,7 +5,7 @@ Edgar Bowlin III
 
 This serves as an easy way to access each Runemetrics API endpoint
 https://runescape.wiki/w/Application_programming_interface#Runemetrics.
-Credit for the information on how to access APIs goes to the authors of
+Credit for the information on how to access API_Accessors goes to the authors of
 the above article
 
 Some Endpoints have been left out. They will be added as their function is understood enough

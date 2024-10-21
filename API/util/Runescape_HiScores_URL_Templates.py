@@ -3,11 +3,11 @@ Runescape_HiScores_URL_Templates.py
 Runescape API Access -> RASPIA
 Edgar Bowlin III
 
-Templates used to go to the various RuneScape related APIs, so they are abstracted away from
+Templates used to go to the various RuneScape related API_Accessors, so they are abstracted away from
 the user.
 
 
-If developing more APIs, just add more endpoints to this file. Make sure to update API_NAME_ENUM.py
+If developing more API_Accessors, just add more endpoints to this file. Make sure to update API_NAME_ENUM.py
 and RASPIAUserAgentStrings with the relevant data/functionality to deal with custom endpoints.
 
 """
