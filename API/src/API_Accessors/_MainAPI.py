@@ -21,7 +21,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
-from API.src.Parsers.APIResponseToJSON import APIResponseParser
+
 
 # this parser serves to wrap _request_and_decode_API_response results
 # and return a user-friendly data structure. However, all data is

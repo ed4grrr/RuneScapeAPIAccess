@@ -6,9 +6,9 @@ from API.src.API_Parsed_Accessor_Factory.API_Parsed_Accessor import API_Parsed_A
 
 
 class API_Parsed_Accessor_Factory():
-    def __init__(self, API_Parser_dict:dict[str:Parser]={}, User_Iput_API_dict:dict[str:[API,str]]={}):
-        self.API_Parser_Dict = API_Parser_dict # used to map API endpoint classes options to specific parser classes
-        self.User_Input_API_Dict = User_Iput_API_dict # used to map User Input to API endpoints.
+    def __init__(self, API_Function_Parser_dict: dict[str:Parser]={}, User_Input_API_dict: dict[str:[API, str]]={}):
+        self.API_Function_Parser_Dict = API_Function_Parser_dict # used to map API endpoint classes' methods to specific parser classes
+        self.User_Input_API_Dict = User_Input_API_dict # used to map User Input to API endpoints.
 
 
     def add_Input_API_Combo(self, input:str, apiAccessor:API, functionName:str) -> None:
@@ -29,7 +29,7 @@ class API_Parsed_Accessor_Factory():
         Python data structure
         @return: None (Void)
         """
-        self.API_Parser_Dict[URL] = Parser
+        self.API_Function_Parser_Dict[URL] = Parser
 
     def remove_URL_Parser_Combo(self, URL:str) -> None:
         """
@@ -39,7 +39,7 @@ class API_Parsed_Accessor_Factory():
         @param URL: The URL template (which is used as the key) to be deleted
         @return: None (Void)
         """
-        del self.API_Parser_Dict[URL]
+        del self.API_Function_Parser_Dict[URL]
 
 
     def determine_API_From_Input_Combo(self, input:str)-> Parser:
@@ -48,14 +48,14 @@ class API_Parsed_Accessor_Factory():
         except KeyError as e:
             raise KeyError(f"{input} is not a key within the User_Input_API_dict.\nDid you "
                            f"use add_Input_API_Combo with the expected user input and the"
-                           +f"callable API function?")
+                           +f" relevant API Accessor Object?")
 
-    def determine_Parser_From_API_Combo(self, api:Callable)-> Parser:
+    def determine_Parser_From_API_Combo(self, function_name:str)-> Parser:
         try:
-            return self.API_Parser_Dict[api]
+            return self.API_Function_Parser_Dict[function_name]
         except KeyError as e:
-            raise KeyError(f"{input} is not a key within the API_Parser_dict.\nDid you "
-                           f"use add_URL_Parser_Combo with the Callable API function and the"
+            raise KeyError(f"{function_name} is not a key within the API_Parser_dict.\nDid you "
+                           f"use add_URL_Parser_Combo with the Callable API function identifier (as a string) and the"
                            +f"respective parser class?")
 
 
@@ -65,7 +65,7 @@ class API_Parsed_Accessor_Factory():
         api = choices["Accessor"]
         function = choices["functionName"]
 
-        parser = self.determine_Parser_From_API_Combo(api)
+        parser = self.determine_Parser_From_API_Combo(function)
 
         return API_Parsed_Accessor(api, function, parser)
 
