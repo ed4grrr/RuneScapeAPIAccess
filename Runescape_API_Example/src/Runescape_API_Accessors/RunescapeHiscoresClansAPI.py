@@ -17,8 +17,8 @@ file.
 
 
 
-from API.util.commonImports import User_Agent_Strings, URL_Templates
-from ._MainAPI import _API
+from Runescape_API_Example.util.commonImports import User_Agent_Strings, URL_Templates
+from API.src.API_Accessors._MainAPI import _API
 
 
 class RunescapeHiscoresClansAPI(_API):

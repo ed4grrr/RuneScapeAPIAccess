@@ -1,6 +1,6 @@
 from API.src.API_Parsed_Accessor_Factory.API_Parsed_Factory import API_Parsed_Accessor_Factory as API_Factory
-from API.src.API_Accessors import RunescapeHiscoresAPI
-from API.src.Parsers.RS_Player_Stats_Parser import RS_Player_Stats_Parser as Parser
+from Runescape_API_Example.src.Runescape_API_Accessors import RunescapeHiscoresAPI
+from Runescape_API_Example.src.Runescape_API_Parsers.RS_Player_Stats_Parser import RS_Player_Stats_Parser as Parser
 
 if __name__ == "__main__":
 

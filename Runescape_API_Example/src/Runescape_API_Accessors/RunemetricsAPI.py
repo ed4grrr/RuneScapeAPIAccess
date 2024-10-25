@@ -15,8 +15,8 @@ file.
 """
 
 
-from API.util.commonImports import URL_Templates, User_Agent_Strings
-from ._MainAPI import _API
+from Runescape_API_Example.util.commonImports import URL_Templates, User_Agent_Strings
+from API.src.API_Accessors._MainAPI import _API
 
 
 
