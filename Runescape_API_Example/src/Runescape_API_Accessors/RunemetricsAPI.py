@@ -15,12 +15,11 @@ file.
 """
 
 
+from API.src.API_Accessors.AbstractAPIAccessor import AbstractAPIAccessor
 from Runescape_API_Example.util.commonImports import URL_Templates, User_Agent_Strings
-from API.src.API_Accessors._MainAPI import _API
 
 
-
-class RunemetricAPI(_API):
+class RunemetricAPIAccessor(AbstractAPIAccessor):
 
     def __init__(self):
         super().__init__()
@@ -40,9 +39,9 @@ class RunemetricAPI(_API):
         :return: a list of the Runemetric data on the said player, as seen at
             https://runescape.wiki/w/Application_programming_interface#Profile
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_player_URL,
-                                                        User_Agent_Strings.runemetrics,
-                                                        [player_name])
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_player_URL,
+                                                       User_Agent_Strings.runemetrics,
+                                                       [player_name])
 
     def _get_player_monthly_xp(self, player_name: str = "Zezima", skill_id: str = "2") -> list:
         """
@@ -55,9 +54,9 @@ class RunemetricAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#Monthly_xp
         """
 
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_monthly_xp_URL,
-                                                        User_Agent_Strings.runemetrics,
-                                                        [player_name, skill_id])
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_monthly_xp_URL,
+                                                       User_Agent_Strings.runemetrics,
+                                                       [player_name, skill_id])
 
     def get_player_quest_data(self, player_name: str = "Zezima") -> list:
         """
@@ -66,9 +65,9 @@ class RunemetricAPI(_API):
         :return: a list of quest completion for player
         https://runescape.wiki/w/Application_programming_interface#Quest
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_player_quest_data_URL,
-                                                        User_Agent_Strings.runemetrics,
-                                                        [player_name])
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_player_quest_data_URL,
+                                                       User_Agent_Strings.runemetrics,
+                                                       [player_name])
 
     def _get_player_count(self) -> list:
         """
@@ -76,8 +75,8 @@ class RunemetricAPI(_API):
         :return: a list containing the number of players online between the two games as seen at
         https://runescape.wiki/w/Application_programming_interface#player_count
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_total_player_count_URL,
-                                                        User_Agent_Strings.runemetrics)
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_total_player_count_URL,
+                                                       User_Agent_Strings.runemetrics)
 
     def _get_total_accounts_created(self) -> list:
         """
@@ -85,8 +84,8 @@ class RunemetricAPI(_API):
         :return: a list containing the number of accounts created
         https://runescape.wiki/w/Application_programming_interface#rsusertotal
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_rsusertotal_URL,
-                                                        User_Agent_Strings.runemetrics)
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_rsusertotal_URL,
+                                                       User_Agent_Strings.runemetrics)
 
     def _get_NXT_changelog(self) -> list:
         """
@@ -95,8 +94,8 @@ class RunemetricAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#NXT
         """
         print(URL_Templates.runemetrics_NXT_URL)
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_NXT_URL,
-                                                        User_Agent_Strings.runemetrics)
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_NXT_URL,
+                                                       User_Agent_Strings.runemetrics)
 
     def _get_windows_installer_info(self) -> list:
         """
@@ -105,8 +104,8 @@ class RunemetricAPI(_API):
         :return: a list containing the above information
         https://runescape.wiki/w/Application_programming_interface#NXT
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_windows_NXT_installer_info,
-                                                        User_Agent_Strings.runemetrics)
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_windows_NXT_installer_info,
+                                                       User_Agent_Strings.runemetrics)
 
     def _get_OSX_installer_info(self) -> list:
         """
@@ -115,5 +114,5 @@ class RunemetricAPI(_API):
         :return: a list containing the above information
         https://runescape.wiki/w/Application_programming_interface#NXT
         """
-        return super()._request_and_decode_API_response(URL_Templates.runemetrics_OSX_NXT_installer_info,
-                                                        User_Agent_Strings.runemetrics)
+        return super().request_and_decode_api_response(URL_Templates.runemetrics_OSX_NXT_installer_info,
+                                                       User_Agent_Strings.runemetrics)

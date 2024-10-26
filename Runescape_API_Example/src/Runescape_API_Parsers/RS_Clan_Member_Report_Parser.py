@@ -1,5 +1,3 @@
-
-
 from API.src.Parsers.IParser import iParser
 
 
@@ -8,8 +6,6 @@ class RS_Clan_Member_Report_Parser(iParser):
     def __init__(self):
 
         pass
-
-
 
     def __parse_clan_data(self, clan_data):
         """
@@ -23,10 +19,13 @@ class RS_Clan_Member_Report_Parser(iParser):
         clan_data_split = clan_data.split("\n")
         for clanmate in clan_data_split:
             clanmate_details = clanmate.split(",")
-            if clanmate_details == ['']:
+            if clanmate_details == [""]:
                 continue
-            clan_data_dict[clanmate_details[0]] = {"clanRank": clanmate_details[1], "totalXP": clanmate_details[2],
-                                                   "kills": clanmate_details[3]}
+            clan_data_dict[clanmate_details[0]] = {
+                "clanRank": clanmate_details[1],
+                "totalXP": clanmate_details[2],
+                "kills": clanmate_details[3],
+            }
         del clan_data_dict["Clanmate"]
 
         return clan_data_dict

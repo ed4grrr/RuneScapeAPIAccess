@@ -11,8 +11,6 @@ If developing more API_Accessors, just add descriptive user agent strings to thi
 
 """
 
-
-
 runemetrics = "RASPIA-runemetrics-request"
 runescape_hiscores = "RASPIA-hiscores-request"
 runescape_clans = "RASPIA-clans-request"

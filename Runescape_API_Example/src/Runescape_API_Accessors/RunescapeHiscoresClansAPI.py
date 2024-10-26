@@ -17,16 +17,16 @@ file.
 
 
 
+from API.src.API_Accessors.AbstractAPIAccessor import AbstractAPIAccessor
 from Runescape_API_Example.util.commonImports import User_Agent_Strings, URL_Templates
-from API.src.API_Accessors._MainAPI import _API
 
 
-class RunescapeHiscoresClansAPI(_API):
+class RunescapeHiscoresClansAPIAccessor(AbstractAPIAccessor):
 
     def __init__(self):
         super().__init__()
 
-    def _get_clan_ranking(self) -> list:
+    def _get_clan_ranking(self) -> str:
         """
         provides the top three clans from the clan hiscores list
 
@@ -34,10 +34,10 @@ class RunescapeHiscoresClansAPI(_API):
         https://runescape.wiki/w/Application_programming_interface#clanRanking
         """
 
-        return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                        User_Agent_Strings.runescape_clans)
+        return super().request_and_decode_api_response(URL_Templates.clan_ranking_URL,
+                                                       User_Agent_Strings.runescape_clans)
 
-    def _get_user_clan_ranking(self, user_session_id: str) -> list:
+    def _get_user_clan_ranking(self, user_session_id: str) -> str:
         """
         provides the currently logged-in user's clan name and rank
         :param user_session_id: the current session id of LOGGED IN player
@@ -45,11 +45,11 @@ class RunescapeHiscoresClansAPI(_API):
         at https://runescape.wiki/w/Application_programming_interface#userClanRanking
         """
 
-        return super()._request_and_decode_API_response(URL_Templates.clan_ranking_URL,
-                                                        User_Agent_Strings.runescape_clans,
-                                                        [user_session_id])
+        return super().request_and_decode_api_response(URL_Templates.clan_ranking_URL,
+                                                       User_Agent_Strings.runescape_clans,
+                                                       [user_session_id])
 
-    def get_clan_members_lite(self, clan_name: str = "The Citadel Kingdom") -> list:
+    def get_clan_members_lite(self, clan_name: str = "The Citadel Kingdom") -> str:
         """
         Provides data on each clan member, provided the name of a clan as seen at
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
@@ -57,6 +57,6 @@ class RunescapeHiscoresClansAPI(_API):
         :return: a list of all clan memebers in the given clan as described at
         https://runescape.wiki/w/Application_programming_interface#Clan_Members_Lite
         """
-        return super()._request_and_decode_API_response(URL_Templates.clan_members_lite_URL,
-                                                        User_Agent_Strings.runescape_clans,
-                                                        [clan_name])
+        return super().request_and_decode_api_response(URL_Templates.clan_members_lite_URL,
+                                                       User_Agent_Strings.runescape_clans,
+                                                       [clan_name])

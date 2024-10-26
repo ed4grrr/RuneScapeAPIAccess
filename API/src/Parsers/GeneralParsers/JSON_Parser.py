@@ -1,8 +1,15 @@
-from API.src.Parsers import IParser
 import json
 
+from API.src.Parsers import IParser
+
+
 class JSON_Parser(IParser):
+    """This is a generic JSON parser that will decode any compatible JSON string into a python dict (JSON Data)"""
+
     def __init__(self):
+        """
+        Creates the JSON_Parser object
+        """
         pass
 
     def Parse_API_Response(self, response:str)-> dict:

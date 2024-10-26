@@ -16,11 +16,11 @@ file.
 
 
 
-from Runescape_API_Example.util.commonImports import  User_Agent_Strings, URL_Templates
-from API.src.API_Accessors._MainAPI import _API
+from API.src.API_Accessors.AbstractAPIAccessor import AbstractAPIAccessor
+from Runescape_API_Example.util.commonImports import User_Agent_Strings, URL_Templates
 
 
-class RunescapeHiscoresSeasonalEventsAPI(_API):
+class RunescapeHiscoresSeasonalEventsAPIAccessor(AbstractAPIAccessor):
 
     def __init__(self):
         super().__init__()
@@ -33,9 +33,9 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         as seen at https://runescape.wiki/w/Application_programming_interface#getRankings
         """
 
-        return super()._request_and_decode_API_response(URL_Templates.seasonal_get_current_rankings_URL,
-                                                        User_Agent_Strings.runescape_seasonal_events,
-                                                         [player_name])
+        return super().request_and_decode_api_response(URL_Templates.seasonal_get_current_rankings_URL,
+                                                       User_Agent_Strings.runescape_seasonal_events,
+                                                       [player_name])
 
     def get_archived_seasonal_rankings(self, player_name: str = "Zezima") -> list:
         """
@@ -45,9 +45,9 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         as seen at https://runescape.wiki/w/Application_programming_interface#getRankings
         """
 
-        return super()._request_and_decode_API_response(URL_Templates.seasonal_get_past_rankings_URL,
-                                                        User_Agent_Strings.runescape_seasonal_events,
-                                                        [player_name])
+        return super().request_and_decode_api_response(URL_Templates.seasonal_get_past_rankings_URL,
+                                                       User_Agent_Strings.runescape_seasonal_events,
+                                                       [player_name])
 
     def _get_current_seasonal_hiscores_details(self) -> list:
         """
@@ -55,8 +55,8 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         :return: a list of the current Seasonal Events as seen at
         https://runescape.wiki/w/Application_programming_interface#getHiscoreDetails
         """
-        return super()._request_and_decode_API_response(URL_Templates.seasonal_get_current_hiscore_details_URL,
-                                                        User_Agent_Strings.runescape_seasonal_events)
+        return super().request_and_decode_api_response(URL_Templates.seasonal_get_current_hiscore_details_URL,
+                                                       User_Agent_Strings.runescape_seasonal_events)
 
     def _get_past_seasonal_hiscores_details(self) -> list:
         """
@@ -65,5 +65,5 @@ class RunescapeHiscoresSeasonalEventsAPI(_API):
         :return: a list of the current Seasonal Events as seen at
         https://runescape.wiki/w/Application_programming_interface#getHiscoreDetails
         """
-        return super()._request_and_decode_API_response(URL_Templates.seasonal_get_past_hiscore_details_URL,
-                                                        User_Agent_Strings.runescape_seasonal_events)
+        return super().request_and_decode_api_response(URL_Templates.seasonal_get_past_hiscore_details_URL,
+                                                       User_Agent_Strings.runescape_seasonal_events)
