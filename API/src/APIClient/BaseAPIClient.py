@@ -1,6 +1,6 @@
 """
 
-AbstractAPIAccessor.py
+BaseAPIClient.py
 General Purpose Python API Accessor Factory. GPP-AAF
 Edgar Bowlin III
 
@@ -22,7 +22,7 @@ from urllib.request import Request, urlopen
 # still in a string format. It is up to the user to verify the data.
 
 
-class AbstractAPIAccessor:
+class BaseAPIClient:
     """
     The abstract parent class for all API accessing classes.
     """

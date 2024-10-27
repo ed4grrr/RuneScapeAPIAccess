@@ -3,7 +3,7 @@ import json
 from API.src.Parsers import IParser
 
 
-class JSON_Parser(IParser):
+class JSONParser(IParser):
     """This is a generic JSON parser that will decode any compatible JSON string into a python dict (JSON Data)"""
 
     def __init__(self):
@@ -12,7 +12,8 @@ class JSON_Parser(IParser):
         """
         pass
 
-    def Parse_API_Response(self, response:str)-> dict:
+    @staticmethod
+    def Parse_API_Response(response:str)-> dict:
         """
         Returns a dict created from a JSON string
 

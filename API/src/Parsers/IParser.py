@@ -2,7 +2,7 @@ import abc
 from typing import Any
 
 
-class iParser(metaclass=abc.ABCMeta):
+class IParser(metaclass=abc.ABCMeta):
     """
     This interface requires a method to parse an API-output string into a Python usable Data
     structure for easy consumption by the end user.

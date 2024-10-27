@@ -1,6 +1,6 @@
 """
 
-API_Parsed_Accessor.py
+APIParsedClient.py
 General Purpose Python API Accessor Factory. GPP-AAF
 Edgar Bowlin III
 
@@ -12,18 +12,18 @@ the factory's function "call_and_parse_api" would be the correct way to receive 
 
 """
 
-from typing import Any
+from typing import Any, Type
 
 import API.src.Parsers.IParser as Parser
-from API.src.API_Accessors.AbstractAPIAccessor import AbstractAPIAccessor as API
+from API.src.APIClient.BaseAPIClient import BaseAPIClient as API
 
 
-class API_Parsed_Accessor:
+class ApiParsedClient:
     """
     The factory used to create API Parsed Accessor in an easy-to-use manner and abstract away the minutia.
     """
 
-    def __init__(self, Accessor: API, functionName: str, Parser_for_EndPoint: Parser):
+    def __init__(self, Accessor: Type[API], functionName: str, Parser_for_EndPoint: Type[Parser]):
         """
         the constructor for the API_Parsed_Accessor, the object received from the API_Parsed_Factory
 
@@ -33,7 +33,13 @@ class API_Parsed_Accessor:
         data structure
         """
 
-        self.Accessor = Accessor
+        try:
+            self.Accessor_Class = Accessor
+            self.Accessor_Object = Accessor()
+        except TypeError as e:
+            e.add_note(f"\nThe argument 'Accessor' ({Accessor}) is of type {type(Accessor)}."
+                       f"\nThis needs to be of {Type[Accessor]}.")
+
         self.functionName = functionName
         self.Response_Parser = Parser_for_EndPoint
 
@@ -52,14 +58,18 @@ class API_Parsed_Accessor:
         @return: Varies depending on the parser implementation. More than likely a string or a dict
         """
         # Use getattr to get the function by name and then call it
-        func = getattr(self.Accessor, self.functionName, None)
+        func = getattr(self.Accessor_Class, self.functionName, None)
 
         # if the string is a callable method identifier
         if callable(func):
             # then, call that function with the supplied args/kwargs and give that response to the response parser to
             # be parsed. Store that to be returned
             returnable = self.Response_Parser().Parse_API_Response(
-                func(*args, **kwargs)
+                # as this function will primarily be bound to an object, func must be
+                # given the arguments for an Object of type AbstractAPIAccessor and then
+                # all other arguments necessary for calling the relevant API endpoint. This
+                # object will take the role of the self argument within the relevant function
+                func(self.Accessor_Object,*args, **kwargs)
             )
             return returnable
         else:

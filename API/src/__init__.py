@@ -1,3 +1,5 @@
-import API_Accessors as AbstractAPIAccessors
-import API_Parsed_Accessor_Factory as AbstractFactory
-import Parsers as Parsers
+import API.src.Parsers as Parsers
+import API.src.APIClient as API_Accessors
+import API.src.APIParsedClientFactory.APIParsedClientFactory as API_Parsed_Factory
+
+

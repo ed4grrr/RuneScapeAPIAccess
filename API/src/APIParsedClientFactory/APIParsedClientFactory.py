@@ -1,14 +1,16 @@
-import API.src.API_Accessors.AbstractAPIAccessor as API
+from typing import Type
+
+import API.src.APIClient.BaseAPIClient as API
 import API.src.Parsers.IParser as Parser
-from API.src.API_Accessors.API_Parsed_Accessor import API_Parsed_Accessor
+from API.src.APIClient.APIParsedClient import ApiParsedClient
 
 
-class API_Parsed_Accessor_Factory:
+class APIParsedClientFactory:
 
     def __init__(
         self,
-        API_Function_Parser_dict=None,
-        User_Input_API_dict=None,
+        API_Function_Parser_dict: {str:Type[Parser]} =None,
+        User_Input_API_dict: {str:{str:Type[API], str:str}}=None,
     ):
         """
         creates an API Parsed Accessor Factory object.
@@ -34,7 +36,7 @@ class API_Parsed_Accessor_Factory:
         )
 
     def add_Input_API_Combo(
-        self, user_input: str, apiAccessor: API, functionName: str
+        self, user_input: str, apiAccessor: Type[API], functionName: str
     ) -> None:
         """
         add an Input_string : {API Accessor Class, and function_name_string} entry to the self.User_Input_API_dict.
@@ -62,7 +64,7 @@ class API_Parsed_Accessor_Factory:
         except KeyError:
             print(f"Key {user_input} not found within User_Input_API_dict.")
 
-    def add_URL_Parser_Combo(self, URL: str, parser: Parser) -> None:
+    def add_URL_Parser_Combo(self, URL: str, parser: Type[Parser]) -> None:
         """
         Add new URL Template/IParser-implementing object to use in Factory method
 
@@ -88,12 +90,12 @@ class API_Parsed_Accessor_Factory:
         except KeyError:
             print(f"Key {URL} not found within API_Function_Parser_Dict.")
 
-    def determine_API_From_Input_Combo(self, user_input: str) -> Parser:
+    def determine_API_From_Input_Combo(self, user_input: str) -> Type[API]:
         """
         determines which API Accessor object to create when a user input is given.
 
         @param user_input: a string that is (hopefully) added as a key to the appropriate API Accessor Class
-        @return:
+        @return: the type of the API Accessor based on user input
         """
         try:
             return self.User_Input_API_Dict[user_input]
@@ -104,7 +106,7 @@ class API_Parsed_Accessor_Factory:
                 + f" relevant API Accessor Object?"
             )
 
-    def determine_Parser_From_API_Combo(self, function_name: str) -> Parser:
+    def determine_Parser_From_API_Combo(self, function_name: str) -> Type[Parser]:
         """
         determines the Parser required based on the string containing the function identifier passed in as an argument
 
@@ -120,7 +122,7 @@ class API_Parsed_Accessor_Factory:
                 + f"respective parser class?"
             )
 
-    def create_API_Parsed_Accessor(self, user_input: str) -> API_Parsed_Accessor:
+    def create_API_Parsed_Accessor(self, user_input: str) -> ApiParsedClient:
         """
         Creates an API_Parsed_Accessor ready to accept arguments for the specified endpoint
 
@@ -138,4 +140,4 @@ class API_Parsed_Accessor_Factory:
 
         parser = self.determine_Parser_From_API_Combo(function)
 
-        return API_Parsed_Accessor(api, function, parser)
+        return ApiParsedClient(api, function, parser)
